@@ -31,10 +31,17 @@ rm MG5_aMC_v2.9.18.tar.gz
 mkdir Plots
 baseDir=$(pwd)
 echo $baseDir
-cd MG5_aMC_v2_9_18
+pyPath="$(echo $baseDir | sed "s|/|', '|g" | cut -c5-)'"
+echo $pyPath
+
+cd scripts
+sed -i "s|/afs/cern.ch/user/c/ccarriva/ZZHH|$baseDir|g" condor/copyandsend_generic_cuts.sh
+sed -i "s|afs', 'cern.ch', 'user', 'c', 'ccarriva', 'ZZHH'|$pyPath|g" plot_and_compute_fractions_checkCuts.py
+sed -i "s|afs', 'cern.ch', 'user', 'c', 'ccarriva', 'ZZHH'|$pyPath|g" plot_only.py
+
+cd ../MG5_aMC_v2_9_18
 cp ../scripts/condor/MG5config_generic_cuts.txt .
 cp ../scripts/condor/copyandsend_generic_cuts.sh .
-sed -i "s|/afs/cern.ch/user/c/ccarriva/rareH_el9|$baseDir|g" copyandsend_generic_cuts.sh
 cp ../scripts/condor/condor_cuts.sub .
 cp ../scripts/condor/sendOne_cuts.sh .
 cp ../scripts/createCsv.sh .
@@ -47,7 +54,3 @@ source myenv/bin/activate
 myenv/bin/python -m pip install --upgrade pip
 pip install numpy matplotlib cycler hist lhereader
 deactivate
-
-
-
-

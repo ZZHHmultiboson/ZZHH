@@ -57,7 +57,7 @@ def setup_histograms():
 def analyze(processo, oppe, valu, outdir):
     '''Event loop + histogram filling'''
 
-    lhe_file = os.path.join('/afs', 'cern.ch', 'user', 'c', 'ccarriva', 'rareH_el9', 'test', 'MG5_aMC_v2_9_18', 'out_' + processo, 'Events', 'run_' + oppe + '_' + valu + '_cuts', 'unweighted_events.lhe') 
+    lhe_file = os.path.join('/afs', 'cern.ch', 'user', 'c', 'ccarriva', 'ZZHH', 'MG5_aMC_v2_9_18', 'out_' + processo, 'Events', 'run_' + oppe + '_' + valu + '_cuts', 'unweighted_events.lhe') 
     lhe_file_gz = lhe_file + '.gz'
 
     # check if gzipped file exists

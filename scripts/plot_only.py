@@ -142,7 +142,7 @@ def analyze(processo,oppe,valu):
 
     ### --- pp->w+zh
 #    lhe_file = os.path.join('/afs', 'cern.ch', 'user', 'a', 'acappati', 'work', 'ZZH', '231010_v2', 'MG5_aMC_v2_7_3_py3', processo, 'Events', 'run_' + oppe + '_' + valu + '_cuts', 'unweighted_events.lhe') # just a test
-    lhe_file = os.path.join('/afs', 'cern.ch', 'user', 'c', 'ccarriva', 'rareH_el9', 'test', 'MG5_aMC_v2_9_18', 'out_' + processo, 'Events', 'run_' + oppe + '_' + valu + '_cuts', 'unweighted_events.lhe') # just a test
+    lhe_file = os.path.join('/afs', 'cern.ch', 'user', 'c', 'ccarriva', 'ZZHH', 'MG5_aMC_v2_9_18', 'out_' + processo, 'Events', 'run_' + oppe + '_' + valu + '_cuts', 'unweighted_events.lhe') # just a test
 
     lhe_file_gz = lhe_file + '.gz'
 
@@ -200,7 +200,7 @@ def main():
 #    xs2 = sys.argv[6]
     label = sys.argv[5]
 
-    csv_file = os.path.join('/afs', 'cern.ch', 'user', 'c', 'ccarriva', 'rareH_el9', 'test', 'MG5_aMC_v2_9_18', 'data_' + processo, 'model_Eboli_' + processo + '_' + oppe + '.csv')
+    csv_file = os.path.join('/afs', 'cern.ch', 'user', 'c', 'ccarriva', 'ZZHH', 'MG5_aMC_v2_9_18', 'data_' + processo, 'model_Eboli_' + processo + '_' + oppe + '.csv')
 
     sm0 = float(sys.argv[3])
     eft = float(sys.argv[4])

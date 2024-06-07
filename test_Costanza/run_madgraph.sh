@@ -27,7 +27,7 @@ cmd_file="mg5_cmd.txt"
   echo "output out_$proc" >> $cmd_file
   echo "quit" >> $cmd_file
 
-  python3 bin/mg5_aMC $cmd_file
+python3 bin/mg5_aMC $cmd_file > mg5_$proc.log
 
 rm $cmd_file
 cp ../../ZZH/dummy_fct_forWZ.f out_$proc/SubProcesses/dummy_fct.f
