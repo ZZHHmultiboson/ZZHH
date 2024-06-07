@@ -1,0 +1,10 @@
+executable              = copyandsend_generic_cuts.sh
+arguments               = SIGNAL OPERAT  
+output                  = run_SIGNAL_OPERAT_cuts.out 
+error                   = run_SIGNAL_OPERAT_cuts.err 
+log                     = run_SIGNAL_OPERAT.log 
++JobFlavour             = "nextweek" 
+periodic_remove         = JobStatus == 5  
+WhenToTransferOutput    = ON_EXIT_OR_EVICT 
+
+Queue 1
