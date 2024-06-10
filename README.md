@@ -22,11 +22,11 @@ e.g.
 ```bash
 wpzh,generate p p > w+ z h QED=3,br_H * br_Z * br_W * 4.
 ```
-> We consider branching ratios for leptonic final states:
-> br_H = 5.824e-01  # h->bb (H125, YR4)
-> br_Z = 3.3658e-02 # z->ll (e, mu, pdg)
-> br_W = 10.86e-02 # w->lnu (e, mu, pdg)
-> May be integrated in the future.
+> We consider branching ratios for leptonic final states:  
+> br_H = 5.824e-01  # h->bb (H125, YR4)  
+> br_Z = 3.3658e-02 # z->ll (e, mu, pdg)  
+> br_W = 10.86e-02 # w->lnu (e, mu, pdg)  
+> May be integrated in the future.  
 
 To produce cross section for different values of involved dim8 operators (FS0, FS1, FS2, FM1, FM2, FM3, FM4, FM5, FM7), run the command:
 
