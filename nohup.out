@@ -1,0 +1,82 @@
+rm: cannot remove 'MG5_aMC_v2_9_18/out_zhjj': No such file or directory
+grep: auto_dsig87.f: No such file or directory
+Use of uninitialized value $proc in pattern match (m//) at /afs/cern.ch/user/c/ccarriva/ZZHH/out_zhjj/bin/internal/gen_jpeg-pl line 45, <PROCESS> line 86.
+Use of uninitialized value $proc in concatenation (.) or string at /afs/cern.ch/user/c/ccarriva/ZZHH/out_zhjj/bin/internal/gen_jpeg-pl line 46, <PROCESS> line 86.
+[1;31mCommand "import /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/mg5_cmd.txt" interrupted in sub-command:
+"output out_zhjj" with error:
+FileNotFoundError : [Errno 2] No such file or directory: '/afs/cern.ch/user/c/ccarriva/ZZHH/out_zhjj/SubProcesses/P1_qq_zhqq/matrix1_orig.f'
+Please report this bug on https://bugs.launchpad.net/mg5amcnlo
+More information is found in 'MG5_debug'.
+Please attach this file to your report.[0m
+Start of job on  Mon Jun 10 05:34:43 PM CEST 2024
+cat: MG5config_generic_cuts.txt: No such file or directory
+cat: condor_cuts.sub: No such file or directory
+Submitting job(s)
+ERROR: on Line 0 of submit file: no queue statement
+
+ERROR: Failed to parse command file (line 0).
+Start of job on  Mon Jun 10 05:34:43 PM CEST 2024
+cat: MG5config_generic_cuts.txt: No such file or directory
+cat: condor_cuts.sub: No such file or directory
+Submitting job(s)
+ERROR: on Line 0 of submit file: no queue statement
+
+ERROR: Failed to parse command file (line 0).
+Start of job on  Mon Jun 10 05:34:44 PM CEST 2024
+cat: MG5config_generic_cuts.txt: No such file or directory
+cat: condor_cuts.sub: No such file or directory
+Submitting job(s)
+ERROR: on Line 0 of submit file: no queue statement
+
+ERROR: Failed to parse command file (line 0).
+Start of job on  Mon Jun 10 05:34:44 PM CEST 2024
+cat: MG5config_generic_cuts.txt: No such file or directory
+cat: condor_cuts.sub: No such file or directory
+Submitting job(s)
+ERROR: on Line 0 of submit file: no queue statement
+
+ERROR: Failed to parse command file (line 0).
+Start of job on  Mon Jun 10 05:34:45 PM CEST 2024
+cat: MG5config_generic_cuts.txt: No such file or directory
+cat: condor_cuts.sub: No such file or directory
+Submitting job(s)
+ERROR: on Line 0 of submit file: no queue statement
+
+ERROR: Failed to parse command file (line 0).
+Start of job on  Mon Jun 10 05:34:45 PM CEST 2024
+cat: MG5config_generic_cuts.txt: No such file or directory
+cat: condor_cuts.sub: No such file or directory
+Submitting job(s)
+ERROR: on Line 0 of submit file: no queue statement
+
+ERROR: Failed to parse command file (line 0).
+Start of job on  Mon Jun 10 05:34:45 PM CEST 2024
+cat: MG5config_generic_cuts.txt: No such file or directory
+cat: condor_cuts.sub: No such file or directory
+Submitting job(s)
+ERROR: on Line 0 of submit file: no queue statement
+
+ERROR: Failed to parse command file (line 0).
+Start of job on  Mon Jun 10 05:34:45 PM CEST 2024
+cat: MG5config_generic_cuts.txt: No such file or directory
+cat: condor_cuts.sub: No such file or directory
+Submitting job(s)
+ERROR: on Line 0 of submit file: no queue statement
+
+ERROR: Failed to parse command file (line 0).
+Start of job on  Mon Jun 10 05:34:46 PM CEST 2024
+cat: MG5config_generic_cuts.txt: No such file or directory
+cat: condor_cuts.sub: No such file or directory
+Submitting job(s)
+ERROR: on Line 0 of submit file: no queue statement
+
+ERROR: Failed to parse command file (line 0).
+Start of job on  Mon Jun 10 05:34:46 PM CEST 2024
+cat: MG5config_generic_cuts.txt: No such file or directory
+cat: condor_cuts.sub: No such file or directory
+Submitting job(s)
+ERROR: on Line 0 of submit file: no queue statement
+
+ERROR: Failed to parse command file (line 0).
+All jobs done.
+All jobs done.

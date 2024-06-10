@@ -1,0 +1,288 @@
+nohup: ignoring input
+rm: cannot remove 'MG5_aMC_v2_9_18/out_zhjj': No such file or directory
+[1;31mCommand "import /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/mg5_cmd.txt" interrupted in sub-command:
+"output out_zhjj" with error:
+FileNotFoundError : [Errno 2] No such file or directory: 'matrix-1.ps'
+Please report this bug on https://bugs.launchpad.net/mg5amcnlo
+More information is found in 'MG5_debug'.
+Please attach this file to your report.[0m
+rm: cannot remove 'MG5_aMC_v2_9_18/mg5_cmd.txt': No such file or directory
+Start of job on  Mon Jun 10 05:34:43 PM CEST 2024
+cat: MG5config_generic_cuts.txt: No such file or directory
+cat: condor_cuts.sub: No such file or directory
+Submitting job(s)
+ERROR: on Line 0 of submit file: no queue statement
+
+ERROR: Failed to parse command file (line 0).
+Start of job on  Mon Jun 10 05:34:44 PM CEST 2024
+cat: MG5config_generic_cuts.txt: No such file or directory
+cat: condor_cuts.sub: No such file or directory
+Submitting job(s)
+ERROR: on Line 0 of submit file: no queue statement
+
+ERROR: Failed to parse command file (line 0).
+Start of job on  Mon Jun 10 05:34:45 PM CEST 2024
+cat: MG5config_generic_cuts.txt: No such file or directory
+cat: condor_cuts.sub: No such file or directory
+Submitting job(s)
+ERROR: on Line 0 of submit file: no queue statement
+
+ERROR: Failed to parse command file (line 0).
+Start of job on  Mon Jun 10 05:34:45 PM CEST 2024
+cat: MG5config_generic_cuts.txt: No such file or directory
+cat: condor_cuts.sub: No such file or directory
+Submitting job(s)
+ERROR: on Line 0 of submit file: no queue statement
+
+ERROR: Failed to parse command file (line 0).
+Start of job on  Mon Jun 10 05:34:45 PM CEST 2024
+cat: MG5config_generic_cuts.txt: No such file or directory
+cat: condor_cuts.sub: No such file or directory
+Submitting job(s)
+ERROR: on Line 0 of submit file: no queue statement
+
+ERROR: Failed to parse command file (line 0).
+Start of job on  Mon Jun 10 05:34:45 PM CEST 2024
+cat: MG5config_generic_cuts.txt: No such file or directory
+cat: condor_cuts.sub: No such file or directory
+Submitting job(s)
+ERROR: on Line 0 of submit file: no queue statement
+
+ERROR: Failed to parse command file (line 0).
+Start of job on  Mon Jun 10 05:34:46 PM CEST 2024
+cat: MG5config_generic_cuts.txt: No such file or directory
+cat: condor_cuts.sub: No such file or directory
+Submitting job(s)
+ERROR: on Line 0 of submit file: no queue statement
+
+ERROR: Failed to parse command file (line 0).
+Start of job on  Mon Jun 10 05:34:46 PM CEST 2024
+cat: MG5config_generic_cuts.txt: No such file or directory
+cat: condor_cuts.sub: No such file or directory
+Submitting job(s)
+ERROR: on Line 0 of submit file: no queue statement
+
+ERROR: Failed to parse command file (line 0).
+Start of job on  Mon Jun 10 05:34:46 PM CEST 2024
+cat: MG5config_generic_cuts.txt: No such file or directory
+cat: condor_cuts.sub: No such file or directory
+Submitting job(s)
+ERROR: on Line 0 of submit file: no queue statement
+
+ERROR: Failed to parse command file (line 0).
+Start of job on  Mon Jun 10 05:34:46 PM CEST 2024
+cat: MG5config_generic_cuts.txt: No such file or directory
+cat: condor_cuts.sub: No such file or directory
+Submitting job(s)
+ERROR: on Line 0 of submit file: no queue statement
+
+ERROR: Failed to parse command file (line 0).
+All jobs done.
+All jobs done.
+All jobs done.
+All jobs done.
+All jobs done.
+All jobs done.
+All jobs done.
+All jobs done.
+All jobs done.
+Couldn't open MG5_aMC_v2_9_18/run_out_zhjj_FM7.log: No such file or directory
+./run_madgraph.sh: line 58: MG5_aMC_v2_9_18/run_out_zhjj_FS0_cuts.err: No such file or directory
+./run_madgraph.sh: line 58: MG5_aMC_v2_9_18/run_out_zhjj_FS1_cuts.err: No such file or directory
+./run_madgraph.sh: line 58: MG5_aMC_v2_9_18/run_out_zhjj_FS2_cuts.err: No such file or directory
+./run_madgraph.sh: line 58: MG5_aMC_v2_9_18/run_out_zhjj_FM0_cuts.err: No such file or directory
+./run_madgraph.sh: line 58: MG5_aMC_v2_9_18/run_out_zhjj_FM1_cuts.err: No such file or directory
+./run_madgraph.sh: line 58: MG5_aMC_v2_9_18/run_out_zhjj_FM2_cuts.err: No such file or directory
+./run_madgraph.sh: line 58: MG5_aMC_v2_9_18/run_out_zhjj_FM3_cuts.err: No such file or directory
+./run_madgraph.sh: line 58: MG5_aMC_v2_9_18/run_out_zhjj_FM4_cuts.err: No such file or directory
+./run_madgraph.sh: line 58: MG5_aMC_v2_9_18/run_out_zhjj_FM5_cuts.err: No such file or directory
+./run_madgraph.sh: line 58: MG5_aMC_v2_9_18/run_out_zhjj_FM7_cuts.err: No such file or directory
+No unexpected error found. Good job!
+Start of job on  Mon Jun 10 05:34:48 PM CEST 2024
+MG5_aMC_v2_9_18/createCsv.sh: line 9: data_zhjj/model_Eboli_zhjj_FS0.csv: No such file or directory
+more: cannot open run_out_zhjj_FS0_cuts.out: No such file or directory
+more: cannot open run_out_zhjj_FS0_cuts.outMG5_aMC_v2_9_18/createCsv.sh: line 10: data_zhjj/model_Eboli_zhjj_FS0.csv: No such file or directory
+: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 11: data_zhjj/model_Eboli_zhjj_FS0.csv: No such file or directory
+more: cannot open run_out_zhjj_FS0_cuts.out: No such file or directory
+more: cannot open run_out_zhjj_FS0_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 12: data_zhjj/model_Eboli_zhjj_FS0.csv: No such file or directory
+more: cannot open run_out_zhjj_FS0_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 13: data_zhjj/model_Eboli_zhjj_FS0.csv: No such file or directory
+more: cannot open run_out_zhjj_FS0_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 14: data_zhjj/model_Eboli_zhjj_FS0.csv: No such file or directory
+more: cannot open run_out_zhjj_FS0_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 15: data_zhjj/model_Eboli_zhjj_FS0.csv: No such file or directory
+more: cannot open run_out_zhjj_FS0_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 16: data_zhjj/model_Eboli_zhjj_FS0.csv: No such file or directory
+more: cannot open run_out_zhjj_FS0_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 17: data_zhjj/model_Eboli_zhjj_FS0.csv: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 9: data_zhjj/model_Eboli_zhjj_FS1.csv: No such file or directory
+more: cannot open run_out_zhjj_FS1_cuts.out: No such file or directory
+more: cannot open run_out_zhjj_FS1_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 10: data_zhjj/model_Eboli_zhjj_FS1.csv: No such file or directory
+more: cannot open run_out_zhjj_FS1_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 11: data_zhjj/model_Eboli_zhjj_FS1.csv: No such file or directory
+more: cannot open run_out_zhjj_FS1_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 12: data_zhjj/model_Eboli_zhjj_FS1.csv: No such file or directory
+more: cannot open run_out_zhjj_FS1_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 13: data_zhjj/model_Eboli_zhjj_FS1.csv: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 14: data_zhjj/model_Eboli_zhjj_FS1.csv: No such file or directory
+more: cannot open run_out_zhjj_FS1_cuts.out: No such file or directory
+more: cannot open run_out_zhjj_FS1_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 15: data_zhjj/model_Eboli_zhjj_FS1.csv: No such file or directory
+more: cannot open run_out_zhjj_FS1_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 16: data_zhjj/model_Eboli_zhjj_FS1.csv: No such file or directory
+more: cannot open run_out_zhjj_FS1_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 17: data_zhjj/model_Eboli_zhjj_FS1.csv: No such file or directory
+more: MG5_aMC_v2_9_18/createCsv.sh: line 9: data_zhjj/model_Eboli_zhjj_FS2.csv: No such file or directory
+cannot open run_out_zhjj_FS2_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 10: data_zhjj/model_Eboli_zhjj_FS2.csv: No such file or directory
+more: cannot open run_out_zhjj_FS2_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 11: data_zhjj/model_Eboli_zhjj_FS2.csv: No such file or directory
+more: cannot open run_out_zhjj_FS2_cuts.out: No such file or directory
+more: cannot open run_out_zhjj_FS2_cuts.outMG5_aMC_v2_9_18/createCsv.sh: line 12: data_zhjj/model_Eboli_zhjj_FS2.csv: No such file or directory
+: No such file or directory
+more: cannot open run_out_zhjj_FS2_cuts.outMG5_aMC_v2_9_18/createCsv.sh: line 13: data_zhjj/model_Eboli_zhjj_FS2.csv: No such file or directory
+: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 14: data_zhjj/model_Eboli_zhjj_FS2.csv: No such file or directory
+more: cannot open run_out_zhjj_FS2_cuts.out: No such file or directory
+more: cannot open run_out_zhjj_FS2_cuts.outMG5_aMC_v2_9_18/createCsv.sh: line 15: data_zhjj/model_Eboli_zhjj_FS2.csv: No such file or directory
+: No such file or directory
+more: cannot open run_out_zhjj_FS2_cuts.outMG5_aMC_v2_9_18/createCsv.sh: line 16: data_zhjj/model_Eboli_zhjj_FS2.csv: No such file or directory
+: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 17: data_zhjj/model_Eboli_zhjj_FS2.csv: No such file or directory
+more: cannot open run_out_zhjj_FS2_cuts.out: No such file or directory
+more: cannot open run_out_zhjj_FM0_cuts.outMG5_aMC_v2_9_18/createCsv.sh: line 9: data_zhjj/model_Eboli_zhjj_FM0.csv: No such file or directory
+: No such file or directory
+more: cannot open run_out_zhjj_FM0_cuts.outMG5_aMC_v2_9_18/createCsv.sh: line 10: data_zhjj/model_Eboli_zhjj_FM0.csv: No such file or directory
+: No such file or directory
+more: cannot open run_out_zhjj_FM0_cuts.outMG5_aMC_v2_9_18/createCsv.sh: line 11: data_zhjj/model_Eboli_zhjj_FM0.csv: No such file or directory
+: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 12: data_zhjj/model_Eboli_zhjj_FM0.csv: No such file or directory
+more: cannot open run_out_zhjj_FM0_cuts.out: No such file or directory
+more: cannot open run_out_zhjj_FM0_cuts.outMG5_aMC_v2_9_18/createCsv.sh: line 13: data_zhjj/model_Eboli_zhjj_FM0.csv: No such file or directory
+: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 14: data_zhjj/model_Eboli_zhjj_FM0.csv: No such file or directory
+more: cannot open run_out_zhjj_FM0_cuts.out: No such file or directory
+more: cannot open run_out_zhjj_FM0_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 15: data_zhjj/model_Eboli_zhjj_FM0.csv: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 16: data_zhjj/model_Eboli_zhjj_FM0.csv: No such file or directory
+more: cannot open run_out_zhjj_FM0_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 17: data_zhjj/model_Eboli_zhjj_FM0.csv: No such file or directory
+more: cannot open run_out_zhjj_FM0_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 9: data_zhjj/model_Eboli_zhjj_FM1.csv: No such file or directory
+more: cannot open run_out_zhjj_FM1_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 10: data_zhjj/model_Eboli_zhjj_FM1.csv: No such file or directory
+more: cannot open run_out_zhjj_FM1_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 11: data_zhjj/model_Eboli_zhjj_FM1.csv: No such file or directory
+more: cannot open run_out_zhjj_FM1_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 12: data_zhjj/model_Eboli_zhjj_FM1.csv: No such file or directory
+more: cannot open run_out_zhjj_FM1_cuts.out: No such file or directory
+more: cannot open run_out_zhjj_FM1_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 13: data_zhjj/model_Eboli_zhjj_FM1.csv: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 14: data_zhjj/model_Eboli_zhjj_FM1.csv: No such file or directory
+more: cannot open run_out_zhjj_FM1_cuts.out: No such file or directory
+more: cannot open run_out_zhjj_FM1_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 15: data_zhjj/model_Eboli_zhjj_FM1.csv: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 16: data_zhjj/model_Eboli_zhjj_FM1.csv: No such file or directory
+more: cannot open run_out_zhjj_FM1_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 17: data_zhjj/model_Eboli_zhjj_FM1.csv: No such file or directory
+more: cannot open run_out_zhjj_FM1_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 9: data_zhjj/model_Eboli_zhjj_FM2.csv: No such file or directory
+more: cannot open run_out_zhjj_FM2_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 10: data_zhjj/model_Eboli_zhjj_FM2.csv: No such file or directory
+more: cannot open run_out_zhjj_FM2_cuts.out: No such file or directory
+more: cannot open run_out_zhjj_FM2_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 11: data_zhjj/model_Eboli_zhjj_FM2.csv: No such file or directory
+more: cannot open run_out_zhjj_FM2_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 12: data_zhjj/model_Eboli_zhjj_FM2.csv: No such file or directory
+more: cannot open run_out_zhjj_FM2_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 13: data_zhjj/model_Eboli_zhjj_FM2.csv: No such file or directory
+more: cannot open run_out_zhjj_FM2_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 14: data_zhjj/model_Eboli_zhjj_FM2.csv: No such file or directory
+more: cannot open run_out_zhjj_FM2_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 15: data_zhjj/model_Eboli_zhjj_FM2.csv: No such file or directory
+more: cannot open run_out_zhjj_FM2_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 16: data_zhjj/model_Eboli_zhjj_FM2.csv: No such file or directory
+more: cannot open run_out_zhjj_FM2_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 17: data_zhjj/model_Eboli_zhjj_FM2.csv: No such file or directory
+more: cannot open run_out_zhjj_FM3_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 9: data_zhjj/model_Eboli_zhjj_FM3.csv: No such file or directory
+more: cannot open run_out_zhjj_FM3_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 10: data_zhjj/model_Eboli_zhjj_FM3.csv: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 11: data_zhjj/model_Eboli_zhjj_FM3.csv: No such file or directory
+more: cannot open run_out_zhjj_FM3_cuts.out: No such file or directory
+more: cannot open run_out_zhjj_FM3_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 12: data_zhjj/model_Eboli_zhjj_FM3.csv: No such file or directory
+more: cannot open run_out_zhjj_FM3_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 13: data_zhjj/model_Eboli_zhjj_FM3.csv: No such file or directory
+more: cannot open run_out_zhjj_FM3_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 14: data_zhjj/model_Eboli_zhjj_FM3.csv: No such file or directory
+more: cannot open run_out_zhjj_FM3_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 15: data_zhjj/model_Eboli_zhjj_FM3.csv: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 16: data_zhjj/model_Eboli_zhjj_FM3.csv: No such file or directory
+more: cannot open run_out_zhjj_FM3_cuts.out: No such file or directory
+more: cannot open run_out_zhjj_FM3_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 17: data_zhjj/model_Eboli_zhjj_FM3.csv: No such file or directory
+more: cannot open run_out_zhjj_FM4_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 9: data_zhjj/model_Eboli_zhjj_FM4.csv: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 10: data_zhjj/model_Eboli_zhjj_FM4.csv: No such file or directory
+more: cannot open run_out_zhjj_FM4_cuts.out: No such file or directory
+more: cannot open run_out_zhjj_FM4_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 11: data_zhjj/model_Eboli_zhjj_FM4.csv: No such file or directory
+more: cannot open run_out_zhjj_FM4_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 12: data_zhjj/model_Eboli_zhjj_FM4.csv: No such file or directory
+more: cannot open run_out_zhjj_FM4_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 13: data_zhjj/model_Eboli_zhjj_FM4.csv: No such file or directory
+more: cannot open run_out_zhjj_FM4_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 14: data_zhjj/model_Eboli_zhjj_FM4.csv: No such file or directory
+more: cannot open run_out_zhjj_FM4_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 15: data_zhjj/model_Eboli_zhjj_FM4.csv: No such file or directory
+more: cannot open run_out_zhjj_FM4_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 16: data_zhjj/model_Eboli_zhjj_FM4.csv: No such file or directory
+more: cannot open run_out_zhjj_FM4_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 17: data_zhjj/model_Eboli_zhjj_FM4.csv: No such file or directory
+more: cannot open run_out_zhjj_FM5_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 9: data_zhjj/model_Eboli_zhjj_FM5.csv: No such file or directory
+more: cannot open run_out_zhjj_FM5_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 10: data_zhjj/model_Eboli_zhjj_FM5.csv: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 11: data_zhjj/model_Eboli_zhjj_FM5.csv: No such file or directory
+more: cannot open run_out_zhjj_FM5_cuts.out: No such file or directory
+more: cannot open run_out_zhjj_FM5_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 12: data_zhjj/model_Eboli_zhjj_FM5.csv: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 13: data_zhjj/model_Eboli_zhjj_FM5.csv: No such file or directory
+more: cannot open run_out_zhjj_FM5_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 14: data_zhjj/model_Eboli_zhjj_FM5.csv: No such file or directory
+more: cannot open run_out_zhjj_FM5_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 15: data_zhjj/model_Eboli_zhjj_FM5.csv: No such file or directory
+more: cannot open run_out_zhjj_FM5_cuts.out: No such file or directory
+more: cannot open run_out_zhjj_FM5_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 16: data_zhjj/model_Eboli_zhjj_FM5.csv: No such file or directory
+more: cannot open run_out_zhjj_FM5_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 17: data_zhjj/model_Eboli_zhjj_FM5.csv: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 9: data_zhjj/model_Eboli_zhjj_FM7.csv: No such file or directory
+more: cannot open run_out_zhjj_FM7_cuts.out: No such file or directory
+more: cannot open run_out_zhjj_FM7_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 10: data_zhjj/model_Eboli_zhjj_FM7.csv: No such file or directory
+more: cannot open run_out_zhjj_FM7_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 11: data_zhjj/model_Eboli_zhjj_FM7.csv: No such file or directory
+more: cannot open run_out_zhjj_FM7_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 12: data_zhjj/model_Eboli_zhjj_FM7.csv: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 13: data_zhjj/model_Eboli_zhjj_FM7.csv: No such file or directory
+more: cannot open run_out_zhjj_FM7_cuts.out: No such file or directory
+more: cannot open run_out_zhjj_FM7_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 14: data_zhjj/model_Eboli_zhjj_FM7.csv: No such file or directory
+more: cannot open run_out_zhjj_FM7_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 15: data_zhjj/model_Eboli_zhjj_FM7.csv: No such file or directory
+more: cannot open run_out_zhjj_FM7_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 16: data_zhjj/model_Eboli_zhjj_FM7.csv: No such file or directory
+more: cannot open run_out_zhjj_FM7_cuts.out: No such file or directory
+MG5_aMC_v2_9_18/createCsv.sh: line 17: data_zhjj/model_Eboli_zhjj_FM7.csv: No such file or directory
+rm: cannot remove 'MG5_aMC_v2_9_18/run_out_*': No such file or directory
+rm: cannot remove 'MG5_aMC_v2_9_18/file_out_*': No such file or directory
+rm: cannot remove 'MG5_aMC_v2_9_18/condor_out_*': No such file or directory
+mkdir: cannot create directory ‘Output/zhjj’: File exists
+mkdir: cannot create directory ‘Output/zhjj/xsec’: File exists
+mv: cannot stat 'MG5_aMC_v2_9_18/out_zhjj/Events/': No such file or directory
+/afs/cern.ch/user/c/ccarriva/ZZHH
