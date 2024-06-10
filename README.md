@@ -8,7 +8,7 @@ git clone https://github.com/ZZHHmultiboson/ZZHH.git
 ./config_lp9.sh
 ```
 
-#### Process generation and xsec plots w/o unitarity
+## Process generation and xsec plots w/o unitarity
 
 Define your process in processes.csv using the following syntax:
 
@@ -26,3 +26,5 @@ To produce cross section for different values of involved dim8 operators (FS0, F
 nohup ./run_madgraph.sh $PROC_NAME > $PROC_NAME.log 2>&1 &
 ```
 Cross section results, as well as plots of cross section as a function of FSi, are stored in Output/$PROC_NAME directory.
+
+## EFT limits w/ unitarity bounds
