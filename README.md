@@ -5,6 +5,7 @@ Clone the repository and run the configuration script:
 
 ```bash
 git clone https://github.com/ZZHHmultiboson/ZZHH.git
+cd ZZHH/
 ./config_lp9.sh
 ```
 
