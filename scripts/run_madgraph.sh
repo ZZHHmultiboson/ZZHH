@@ -2,12 +2,12 @@
 
 # Searching for process definition
 
-file="processes.csv"
+file="../processes.csv"
 
 proc=""
 mg5_string=""
 
-while IFS=, read -r name string; do
+while IFS=, read -r name string br; do
   if [[ $name == $1 ]]; then
     proc=$name
     mg5_string=$string
