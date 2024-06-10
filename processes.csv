@@ -1,2 +1,2 @@
-wmzh,generate p p > w- z h QED=3
-wpzh,generate p p > w+ z h QED=3
+wmzh,generate p p > w- z h QED=3,br_H * br_Z * br_W * 4.
+wpzh,generate p p > w+ z h QED=3,br_H * br_Z * br_W * 4.
