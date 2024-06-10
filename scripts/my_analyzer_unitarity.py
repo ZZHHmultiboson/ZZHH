@@ -30,15 +30,14 @@ def main():
     print (processo)
     print (cuts)
 
-    out_dir = 'plots_perUnitarity_' + processo + '_' + cuts
+    out_dir = '../Output/' + processo + '/plots_perUnitarity_' + processo + '_' + cuts
     os.makedirs(out_dir,exist_ok=True) #check if output dir exist
 
     # --- dictionary for results
     fit_results = {}
 
     # --- input file names
-    #name_list = ['FS0','FS1','FS2','FM0','FM1','FM2','FM3','FM4','FM5','FM7']
-    name_list = ['FS0','FS1','FS2','FM1','FM2','FM3','FM4','FM5','FM7']
+    name_list = ['FS0','FS1','FS2','FM0','FM1','FM2','FM3','FM4','FM5','FM7']
     cuts_list = ['1000000.0','1200.0','1400.0','1600.0','1800.0','2000.0','2500.0','3000.0','3500.0','4000.0','5000.0']
     
     ## BRANCHING RATIO
@@ -91,8 +90,7 @@ def main():
 
             print("now doing ",i_name," with cut at ",c_name," GeV")
 
-            # csv = 'data_' + processo + "_" + cuts + "/model_Eboli_" + processo2 + "_" + i_name + '_histat.csv' 
-            csv = 'data_' + processo + "/model_Eboli_" + processo + "_" + i_name + '.csv' 
+            csv = '../Output/' + processo + '/xsec/data_' + processo + "/model_Eboli_" + processo + "_" + i_name + '.csv' 
             cols = ['operator', 'crossSection', 'crossSectionErr']
             df = pd.read_csv(csv, comment='#', sep=',',names=cols)
             dfcopy = df.copy()
@@ -113,8 +111,7 @@ def main():
                 json_name = str(int(abs(x_arr[opval])))
                 if (x_arr[opval] < 0.):
                     json_name = "minus"+json_name
-                #json_file = '../../mg5tut_apr21_plots/fractions_'+processo2+'_'+i_name+'_'+json_name+'.json'
-                json_file = '../mg5tut_apr21_plots/plotsAndFractions_' + processo + '/fractions_' + processo + '_'+i_name+'_'+json_name+'.json'
+                json_file = '../Output/' + processo + '/plotsAndFractions_' + processo + '/fractions_' + processo + '_'+i_name+'_'+json_name+'.json'
                 ffrac = open(json_file)
                 fractions = json.load(ffrac)
                 fraction = float(fractions[c_name])/float(fractions['1000000.0'])
@@ -227,10 +224,8 @@ def test():
     pass
     for i_name in cuts_list:
         for i_name in name_list:
-        with open(os.path.join(out_dir, 'fitResults.json'),'r') as f:
-
-        
-
+            with open(os.path.join(out_dir, 'fitResults.json'),'r') as f:
+                pass
 
 if __name__=="__main__":
     main()

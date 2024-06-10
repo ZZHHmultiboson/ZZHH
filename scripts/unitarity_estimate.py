@@ -77,7 +77,8 @@ def main():
     name_list = ['FS0', 'FS1', 'FS2', 'FM1', 'FM2', 'FM3', 'FM4', 'FM5', 'FM7']
     limit_values = [4.2, 5.2, 0.0, 1.0, 3.0, 1.8, 3.3, 3.6, 5.1] #best limits from WV semilep (arXiv:1905.07445) and Wgamma (arXiv:2212.12592)
     process = sys.argv[1]
-    oppe = sys.argv[2]
+    cutss = sys.argv[2]
+    oppe = sys.argv[3]
 
     if oppe not in name_list:
         print(f"{oppe} is not a valid operator.")
@@ -110,8 +111,9 @@ def main():
 
     # fit parameters for all data (nocut)
 
-    f_nocut = open('plots_perUnitarity_wpzh_mWZH1100/fitResults_1000000.json',)
-  
+    #f_nocut = open('plots_perUnitarity_wpzh_mWZH1100/fitResults_1000000.json',)
+    f_nocut = open(f'../Output/{process}/plots_perUnitarity_{process}_{cutss}/fitResults_1000000.json')
+
     data_nocut = json.load(f_nocut)
 
     anocut = data_nocut[oppe]['a']
@@ -119,12 +121,12 @@ def main():
     cnocut = data_nocut[oppe]['c']
     i = -1
 
-    with open('results_vbf-wz.txt', 'w') as fi: # ouput file 
+    with open(f'../Output/{process}/results_{process}.txt', 'w') as fi: # ouput file 
         for c_name in cuts_list:
 
             # fit parameters for each cut
             
-            f = open('plots_perUnitarity_wpzh_mWZH1100/fitResults_'+c_name+'.json',)
+            f = open(f'../Output/{process}/plots_perUnitarity_{process}_{cutss}/fitResults_'+c_name+'.json',)
             
             data = json.load(f)
             
@@ -139,7 +141,7 @@ def main():
             print ("Excluded xsec no cut = ",cross95," Relative xsec 95% interval = ",distance_to_min)
             
             # now rescale for statistics!
-            json_file = '../mg5tut_apr21_plots/plotsAndFractions_wpzh/fractions_wpzh_'+oppe+'_0.json'
+            json_file = '../Output/'+ process + 'plotsAndFractions_wpzh/fractions_wpzh_'+oppe+'_0.json'
             ffrac = open(json_file)
             fractions = json.load(ffrac)
             newc_name = c_name+'.0'
