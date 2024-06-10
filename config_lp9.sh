@@ -41,6 +41,7 @@ export LHAPDF_DATA_PATH=/cvmfs/cms.cern.ch/slc7_amd64_gcc820/external/lhapdf/6.2
 # First set of scripts
 rm MG5_aMC_v2.9.18.tar.gz
 mkdir Plots
+mkdir Output
 baseDir=$(pwd)
 echo $baseDir
 pyPath="$(echo $baseDir | sed "s|/|', '|g" | cut -c5-)'"
@@ -48,6 +49,7 @@ echo $pyPath
 
 cd scripts
 sed -i "s|/afs/cern.ch/user/c/ccarriva/ZZHH|$baseDir|g" condor/copyandsend_generic_cuts.sh
+sed -i "s|/afs/cern.ch/user/c/ccarriva/ZZHH|$baseDir|g" run_madgraph.sh
 sed -i "s|afs', 'cern.ch', 'user', 'c', 'ccarriva', 'ZZHH'|$pyPath|g" plot_and_compute_fractions_checkCuts.py
 sed -i "s|afs', 'cern.ch', 'user', 'c', 'ccarriva', 'ZZHH'|$pyPath|g" plot_only.py
 
@@ -57,6 +59,7 @@ cp ../scripts/condor/copyandsend_generic_cuts.sh .
 cp ../scripts/condor/condor_cuts.sub .
 cp ../scripts/condor/sendOne_cuts.sh .
 cp ../scripts/createCsv.sh .
+cp ../scripts/my_analyzer_cuts.py .
 
 # Plots repository
 echo "Setting up plotting enviroment..."
