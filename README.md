@@ -27,9 +27,10 @@ wpzh,generate p p > w+ z h QED=3,br_H * br_Z * br_W * 4.
 > * br_Z = 3.3658e-02 [ z->ll (e, mu, pdg) ]  
 > * br_W = 10.86e-02 [ w->lnu (e, mu, pdg) ]  
 
-To produce cross section for different values of involved dim8 operators (FS0, FS1, FS2, FM1, FM2, FM3, FM4, FM5, FM7), run the command:
+To produce cross section for different values of involved dim8 operators (FS0, FS1, FS2, FM1, FM2, FM3, FM4, FM5, FM7), call the GRID certificate and run the script:
 
 ```bash
+voms-proxy-init -voms cms -rfc --valid 168:0
 nohup ./run_madgraph.sh $PROC_NAME > $PROC_NAME.log 2>&1 &
 ```
 Cross section results, as well as plots of cross section as a function of FSi, are stored in Output/$PROC_NAME directory.
