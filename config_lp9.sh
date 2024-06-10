@@ -60,6 +60,7 @@ cp ../scripts/condor/condor_cuts.sub .
 cp ../scripts/condor/sendOne_cuts.sh .
 cp ../scripts/createCsv.sh .
 cp ../scripts/my_analyzer_cuts.py .
+cp ../scripts/run_madgraph.sh .
 
 # Plots repository
 echo "Setting up plotting enviroment..."

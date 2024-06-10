@@ -8,6 +8,8 @@ git clone https://github.com/ZZHHmultiboson/ZZHH.git
 ./config_lp9.sh
 ```
 
+#### Process generation and xsec plots w/o unitarity
+
 Define your process in processes.csv using the following syntax:
 
 ```bash
@@ -21,6 +23,6 @@ wpzh,generate p p > w+ z h QED=3
 To produce cross section for different values of involved dim8 operators (FS0, FS1, FS2, FM1, FM2, FM3, FM4, FM5, FM7), run the command:
 
 ```bash
-./run_madgraph.sh $PROC_NAME
+nohup ./run_madgraph.sh $PROC_NAME > $PROC_NAME.log 2>&1 &
 ```
-Cross section results, as well as plots of cross section VS FSi, are stored in Output/$PROC_NAME directory.
+Cross section results, as well as plots of cross section as a function of FSi, are stored in Output/$PROC_NAME directory.
