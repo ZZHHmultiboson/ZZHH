@@ -73,8 +73,7 @@ def main():
     name_list = ['FS0','FS1','FS2','FM0','FM1','FM2','FM3','FM4','FM5','FM7']
     '''
     cuts_list = ['1000000','1200','1400','1600','1800','2000','2500','3000','3500','4000','5000']
-#    name_list = ['FS0', 'FS1', 'FS2', 'FM0', 'FM1', 'FM2', 'FM3', 'FM4', 'FM5', 'FM7']
-    name_list = ['FS0', 'FS1', 'FS2', 'FM1', 'FM2', 'FM3', 'FM4', 'FM5', 'FM7']
+    name_list = ['FS0', 'FS1', 'FS2', 'FM0', 'FM1', 'FM2', 'FM3', 'FM4', 'FM5', 'FM7']
     limit_values = [4.2, 5.2, 0.0, 1.0, 3.0, 1.8, 3.3, 3.6, 5.1] #best limits from WV semilep (arXiv:1905.07445) and Wgamma (arXiv:2212.12592)
     process = sys.argv[1]
     cutss = sys.argv[2]
