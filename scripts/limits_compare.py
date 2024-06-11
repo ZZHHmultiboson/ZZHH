@@ -1,7 +1,6 @@
 import matplotlib.pyplot as plt
 import sys
 
-# Dati della tabella originale
 coefficients = {
     'FS0': '[-4.2,4.2]',
     'FS1': '[-5.2,5.2]',
