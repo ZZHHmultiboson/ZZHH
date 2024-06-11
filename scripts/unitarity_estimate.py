@@ -140,7 +140,7 @@ def main():
             print ("Excluded xsec no cut = ",cross95," Relative xsec 95% interval = ",distance_to_min)
             
             # now rescale for statistics!
-            json_file = '../Output/'+ process + '/plotsAndFractions_wpzh/fractions_wpzh_'+oppe+'_0.json'
+            json_file = '../Output/'+ process + '/plotsAndFractions_'+ process +'/fractions_'+process+'_'+oppe+'_0.json'
             ffrac = open(json_file)
             fractions = json.load(ffrac)
             newc_name = c_name+'.0'
