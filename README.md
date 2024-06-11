@@ -31,9 +31,32 @@ To produce cross section for different values of involved dim8 operators (FS0, F
 
 ```bash
 voms-proxy-init -voms cms -rfc --valid 168:0
+cd MG5_aMC_v2_9_18
 nohup ./run_madgraph.sh $PROC_NAME > $PROC_NAME.log 2>&1 &
 ```
-Cross section results, as well as plots of cross section as a function of FSi, are stored in Output/$PROC_NAME directory.
+Cross section results, as well as plots of cross section as a function of Fi, are stored in Output/$PROC_NAME directory.
 
 ## EFT limits w/ unitarity bounds
 
+Limits on EFT parameters are derived at the mass point given by the intersection of theoretical curve and the one obtained varying the mass interval for xsec extraction. In this way unitarity is taken in account.
+To plot xsec as a function of Fi at each mass point, compare the two curves and derive the final limit, run:
+
+```bash
+cd ..
+nohup ./run_unitarity.sh $PROC_NAME $CUTS $REF_OP $ > $PROC_NAME_unitarity.log 2>&1 &
+```
+
+$CUTS is an indicative expression of the global cut considered (e.g. for m(W,Z,H)=1.1 TeV, it can be mWZH1100). The script takes as input the experimental limit on a chosen operator to derive limits on other operators, so you have to specify it as third argument ($REF_OP).
+Best experimental limits to date are considered:
+
+| Wilson Coefficient | Best Experimental Limit | Analysis                       |
+|--------------------|-------------------------|--------------------------------|
+| FS0                | [-4.2; 4.2]             | WV semilep (arXiv:1905.07445)  |
+| FS1                | [-5.2; 5.2]             | WV semilep (arXiv:1905.07445)  |
+| FS2                | -                       | -                              |
+| FM0                | [-1.0; 1.0]             | WV semilep (arXiv:1905.07445)  |
+| FM1                | [-3.0; 3.0]             | WV semilep (arXiv:1905.07445)  |
+| FM2                | [-1.8; 1.8]             | Wgamma (arXiv:2212.12592)      |
+| FM4                | [-3.3; 3.3]             | Wgamma (arXiv:2212.12592)      |
+| FM5                | [-3.4; 3.6]             | Wgamma (arXiv:2212.12592)      |
+| FM7                | [-5.1; 5.1]             | WV semilep (arXiv:1905.07445)  |

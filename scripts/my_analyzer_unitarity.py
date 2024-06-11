@@ -219,15 +219,8 @@ def main():
             json.dump(fit_results,f)
             
         #pprintpp.pprint(fit_results) #print nicely the dictionary
-                
-def test():
-    pass
-    for i_name in cuts_list:
-        for i_name in name_list:
-            with open(os.path.join(out_dir, 'fitResults.json'),'r') as f:
-                pass
+
 
 if __name__=="__main__":
     main()
-    test()
     exit(0)

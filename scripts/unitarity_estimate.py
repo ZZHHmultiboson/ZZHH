@@ -141,7 +141,7 @@ def main():
             print ("Excluded xsec no cut = ",cross95," Relative xsec 95% interval = ",distance_to_min)
             
             # now rescale for statistics!
-            json_file = '../Output/'+ process + 'plotsAndFractions_wpzh/fractions_wpzh_'+oppe+'_0.json'
+            json_file = '../Output/'+ process + '/plotsAndFractions_wpzh/fractions_wpzh_'+oppe+'_0.json'
             ffrac = open(json_file)
             fractions = json.load(ffrac)
             newc_name = c_name+'.0'
@@ -214,7 +214,7 @@ def main():
         #ax.set_xticks(x_ticks)
     
         plt.tight_layout()
-        plt.savefig('unitarityPlot_vbswz_'+oppe+'.pdf', dpi=300) #save plot, resolution
+        plt.savefig('../Output/'+process+'/unitarityPlots/unitarityPlot_'+process+'_'+oppe+'.png', dpi=300) #save plot, resolution
         #        plt.show() #mi mostra la finestra del plot, da togliere se usi nelle code
         plt.close(fig_all) #libera memoria da fig
         
@@ -224,7 +224,7 @@ def main():
                 continue
             else:
                 for c_name in cuts_list:
-                    f = open('plots_perUnitarity_wpzh_mWZH1100/fitResults_'+c_name+'.json',)
+                    f = open('../Output/'+process+'/plots_perUnitarity_'+process+'_'+cutss+'/fitResults_'+c_name+'.json',)
                     data = json.load(f)
                     
                     aa = data[i_name]['a']
@@ -296,7 +296,7 @@ def main():
                 #ax.set_xticks(x_ticks)
                 
                 plt.tight_layout()
-                plt.savefig('unitarityPlot_wpzh_'+i_name+'.pdf', dpi=300) #save plot, resolution
+                plt.savefig('../Output/'+process+'/unitarityPlots/unitarityPlot_wpzh_'+i_name+'.png', dpi=300) #save plot, resolution
                 #        plt.show() #mi mostra la finestra del plot, da togliere se usi nelle code
                 plt.close(fig_all) #libera memoria da fig        
                 
