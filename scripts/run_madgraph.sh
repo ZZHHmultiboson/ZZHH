@@ -92,10 +92,10 @@ mv data_$proc ../Output/$proc/xsec
 mv out_$proc/Events/ ../Output/$proc/xsec
 
 # Nocuts plots
-
+(
 cd ../CMSSW_13_0_16/src
 cmsenv
 cd -
 python3 my_analyzer_cuts.py $proc $proc m1100
-
+)
 exit 0

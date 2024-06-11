@@ -38,7 +38,7 @@ Cross section results, as well as plots of cross section as a function of Fi, ar
 
 ## EFT limits w/ unitarity bounds
 
-Limits on EFT parameters are derived at the mass point given by the intersection of theoretical curve and the one obtained varying the mass interval for xsec extraction. In this way unitarity is taken in account.  
+Limits on EFT parameters are derived at the mass point given by the intersection of theoretical curve and the one obtained varying the mass interval for xsec extraction.  
 To plot xsec as a function of Fi at each mass point, compare the two curves and derive the final limit, run:
 
 ```bash
