@@ -38,7 +38,7 @@ Cross section results, as well as plots of cross section as a function of Fi, ar
 
 ## EFT limits w/ unitarity bounds
 
-Limits on EFT parameters are derived at the mass point given by the intersection of theoretical curve and the one obtained varying the mass interval for xsec extraction. In this way unitarity is taken in account.
+Limits on EFT parameters are derived at the mass point given by the intersection of theoretical curve and the one obtained varying the mass interval for xsec extraction. In this way unitarity is taken in account.  
 To plot xsec as a function of Fi at each mass point, compare the two curves and derive the final limit, run:
 
 ```bash
@@ -46,7 +46,7 @@ cd ..
 nohup ./run_unitarity.sh $PROC_NAME $CUTS $REF_OP $ > $PROC_NAME_unitarity.log 2>&1 &
 ```
 
-$CUTS is an indicative expression of the global cut considered (e.g. for m(W,Z,H)=1.1 TeV, it can be mWZH1100). The script takes as input the experimental limit on a chosen operator to derive limits on other operators, so you have to specify it as third argument ($REF_OP).
+$CUTS is an indicative expression of the global cut considered (e.g. for m(W,Z,H)=1.1 TeV, it can be mWZH1100).  The script takes as input the experimental limit on a chosen operator to derive limits on other operators, so you have to specify it as third argument ($REF_OP).  
 Best experimental limits to date are considered:
 
 | Wilson Coefficient | Best Experimental Limit | Analysis                       |
