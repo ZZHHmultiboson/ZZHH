@@ -24,5 +24,6 @@ cmsenv
 cd -
 python3 my_analyzer_unitarity.py $proc m1100
 python3 unitarity_estimate.py $proc $cuts $ref_op
+python3 limits_compare.py $proc
 
 exit 0
