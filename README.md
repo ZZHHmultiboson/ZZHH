@@ -32,7 +32,7 @@ To produce cross section for different values of involved dim8 operators (FS0, F
 ```bash
 voms-proxy-init -voms cms -rfc --valid 168:0
 cd MG5_aMC_v2_9_18
-nohup ./run_madgraph.sh $PROC_NAME > $PROC_NAME.log 2>&1 &
+./run_madgraph.sh $PROC_NAME
 ```
 Cross section results, as well as plots of cross section as a function of Fi, are stored in Output/$PROC_NAME directory.
 
@@ -43,7 +43,7 @@ To plot xsec as a function of Fi at each mass point, compare the two curves and 
 
 ```bash
 cd ..
-nohup ./run_unitarity.sh $PROC_NAME $CUTS $REF_OP $ > $PROC_NAME_unitarity.log 2>&1 &
+./run_unitarity.sh $PROC_NAME $CUTS $REF_OP
 ```
 
 $CUTS is an indicative expression of the global cut considered (e.g. for m(W,Z,H)=1.1 TeV, it can be mWZH1100).  The script takes as input the experimental limit on a chosen operator to derive limits on other operators, so you have to specify it as third argument ($REF_OP).  
