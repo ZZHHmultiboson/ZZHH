@@ -1,0 +1,10 @@
+executable              = /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/condor_sign/copyandsend_generic_cuts.sh
+arguments               = SIGNAL OPERAT  
+output                  = /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/run_SIGNAL_OPERAT_cuts.out 
+error                   = /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/run_SIGNAL_OPERAT_cuts.err 
+log                     = /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/run_SIGNAL_OPERAT.log 
++JobFlavour             = "nextweek" 
+periodic_remove         = JobStatus == 5  
+WhenToTransferOutput    = ON_EXIT_OR_EVICT 
+
+Queue 1

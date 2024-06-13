@@ -1,0 +1,52 @@
+{
+    "wpzh": {
+        "isSignal": true,
+        "mg5_syntax": "generate p p > w+ z h QED=3",
+        "BR": "br_H * br_Z * br_W * 4."
+    },
+    "wmzh": {
+        "isSignal": true,
+        "mg5_syntax": "generate p p > w- z h QED=3",
+        "BR": "br_H * br_Z * br_W * 4."
+    },
+    "zhjj": {
+        "isSignal": true,
+        "mg5_syntax": "generate p p > z h j j QCD=0",
+        "BR": "br_H * br_Z * 2."
+    },
+    "wphjj": {
+        "isSignal": true,
+        "mg5_syntax": "generate p p > w+ h j j QCD=0",
+        "BR": "br_H * br_W * 2."
+    },
+    "wmhjj": {
+        "isSignal": true,
+        "mg5_syntax": "generate p p > w- h j j QCD=0",
+        "BR": "br_H * br_W * 2."
+    },
+    "wpzbb": {
+        "isSignal": false,
+        "mg5_syntax": "generate p p > w+ z b b~ QED=3",
+        "BR": "1."
+    },
+    "wmzbb": {
+        "isSignal": false,
+        "mg5_syntax": "generate p p > w- z b b~ QED=3",
+        "BR": "1."
+    },
+    "zbbjj": {
+        "isSignal": false,
+        "mg5_syntax": "generate p p > z b b~ j j QCD=0",
+        "BR": "1."
+    },
+    "wpbbjj": {
+        "isSignal": false,
+        "mg5_syntax": "generate p p > w+ b b~ j j QCD=0",
+        "BR": "1."
+    },
+    "wmbbjj": {
+        "isSignal": false,
+        "mg5_syntax": "generate p p > w- b b~ j j QCD=0",
+        "BR": "1."
+    }
+}

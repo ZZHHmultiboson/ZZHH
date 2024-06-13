@@ -1,8 +1,8 @@
-executable              = copyandsend_generic_cuts.sh                                                                     
+executable              = /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/condor_bkg/copyandsend_generic_cuts_bkg.sh                                                                     
 arguments               = SIGNAL                                                                                                            
-output                  = run_SIGNAL_cuts.out                                                                                              
-error                   = run_SIGNAL_cuts.err                                                                                                        
-log                     = run_SIGNAL.log                                                                                                             
+output                  = /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/run_SIGNAL_cuts.out                                                                                              
+error                   = /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/run_SIGNAL_cuts.err                                                                                                        
+log                     = /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/run_SIGNAL.log                                                                                                             
 +JobFlavour             = "nextweek"                                                                                                        
 periodic_remove         = JobStatus == 5                                                                                                                 
 WhenToTransferOutput    = ON_EXIT_OR_EVICT                                                                                         
