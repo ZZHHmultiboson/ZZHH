@@ -46,6 +46,7 @@ source /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/createCsv.sh $proc data_$proc
 #rm /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/run_out_$proc_*
 rm /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/file_out_$proc_*
 rm /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/condor_out_$proc_*
+rm /afs/cern.ch/user/c/ccarriva/ZZHH/py.py
 
 # Moving results to outDir
 

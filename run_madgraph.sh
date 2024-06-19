@@ -46,15 +46,13 @@ rm $cmd_file
 echo "all ok now"
 operators=("FM0" "FM1" "FM2" "FM3" "FM4" "FM5" "FM7" "FS0" "FS1" "FS2")
 
-for oppe in ${operators[@]}
-do
-  if [ "$isSignal" == "true" ]; then
+if [ "$isSignal" == "true" ]; then
+  for oppe in ${operators[@]}
+  do
     cp /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/condor_sign/dummy_fct_forWZ.f /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/out_$proc/SubProcesses/dummy_fct.f
     source /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/condor_sign/sendOne_cuts.sh out_$proc $oppe
-  fi
-done
-
-if [ "$isSignal" == "false" ]; then
+  done
+else
   cp /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/condor_bkg/dummy_fct_ppTozbbbb.f /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/out_$proc/SubProcesses/dummy_fct.f
   source /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/condor_bkg/sendOne_cuts_bkg.sh out_$proc
 fi
