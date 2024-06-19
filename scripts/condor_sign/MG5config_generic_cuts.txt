@@ -4,7 +4,7 @@ set anoinputs 2 1e-20
 set anoinputs 3 1e-20             
 set anoinputs 4 1e-20             
 set anoinputs 5 1e-20             
-set anoinputs 6 1e-20             
+set anoinputs 6 1e-20
 set anoinputs 7 1e-20             
 set anoinputs 8 1e-20             
 set anoinputs 9 1e-20            

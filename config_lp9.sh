@@ -51,7 +51,7 @@ find . -type f -exec sed -i "s|afs', 'cern.ch', 'user', 'c', 'ccarriva', 'ZZHH'|
 
 # Plots repository
 echo "Setting up plotting enviroment..."
-cd ../Plots
+cd Plots
 
 cp ../scripts/plot_and_compute_fractions_checkCuts.py .
 cp ../scripts/my_analyzer_unitarity.py .

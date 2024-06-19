@@ -12,27 +12,29 @@ cd ZZHH/
 
 ## Process generation and xsec plots w/o unitarity
 
-Define your process in processes.csv using the following syntax:
+Define your process in processes.json using the following syntax:
 
 ```bash
-$PROC_NAME,$MG5_SYNTAX,$BRANCHING_RATIO
-```
-e.g.
+"wpzh": {
+    "isSignal": true,
+    "mg5_syntax": "generate p p > w+ z h QED=3",
+    "BR": "br_H * br_Z * br_W * 4."
+}
 
-```bash
-wpzh,generate p p > w+ z h QED=3,br_H * br_Z * br_W * 4.
 ```
+where the key is the process name.
+
 > Branching ratios for bosons decays are defined in my_analyzer_cuts.py:
 > * br_H = 5.824e-01 [ h->bb (H125, YR4) ]  
 > * br_Z = 3.3658e-02 [ z->ll (e, mu, pdg) ]  
 > * br_W = 10.86e-02 [ w->lnu (e, mu, pdg) ]  
 
-To produce cross section for different values of involved dim8 operators (FS0, FS1, FS2, FM1, FM2, FM3, FM4, FM5, FM7), call the GRID certificate and run the script:
+To produce cross section for different values of involved dim8 operators (FS0, FS1, FS2, FM1, FM2, FM3, FM4, FM5, FM7), call the GRID certificate and run the scripts:
 
 ```bash
 voms-proxy-init -voms cms -rfc --valid 168:0
-cd MG5_aMC_v2_9_18
 ./run_madgraph.sh $PROC_NAME
+./run_xsec.sh $PROC_NAME
 ```
 Cross section results, as well as plots of cross section as a function of Fi, are stored in Output/$PROC_NAME directory.
 
