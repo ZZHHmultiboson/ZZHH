@@ -62,5 +62,18 @@ cp ../scripts/limits_compare.py .
 python3 -m venv myenv
 source myenv/bin/activate
 myenv/bin/python -m pip install --upgrade pip
+pip install tensorflow==2.6.4
+pip install absl-py~=0.10
+pip install clang~=5.0
+pip install flatbuffers~=1.12.0
+pip install gast==0.4.0
+pip install h5py~=3.1.0
+pip install numpy~=1.19.2
+pip install opt-einsum~=3.3.0
+pip install six~=1.15.0
+pip install tensorboard<2.7,>=2.6.0
+pip install tensorflow-estimator<2.7,>=2.6.0
+pip install typing-extensions<3.11,>=3.7
+pip install wrapt~=1.12.1
 pip install numpy matplotlib cycler hist lhereader
 deactivate
