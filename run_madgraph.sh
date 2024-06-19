@@ -25,9 +25,8 @@ echo "BR: $BR"
 rm -r out_$proc
 cmd_file="/afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/mg5_cmd.txt"
 
-  echo "n" > $cmd_file
-
   if [ "$isSignal" == "true" ]; then
+    echo "n" > $cmd_file
     echo "convert model /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/models/SM_Ltotal_Ind5v2020v2_UFO" >> $cmd_file
     echo "import model SM_Ltotal_Ind5v2020v2_UFO" >> $cmd_file
   else
@@ -44,6 +43,7 @@ cat $cmd_file
 rm $cmd_file
 
 echo "all ok now"
+
 operators=("FM0" "FM1" "FM2" "FM3" "FM4" "FM5" "FM7" "FS0" "FS1" "FS2")
 
 if [ "$isSignal" == "true" ]; then
@@ -53,7 +53,7 @@ if [ "$isSignal" == "true" ]; then
     source /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/condor_sign/sendOne_cuts.sh out_$proc $oppe
   done
 else
-  cp /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/condor_bkg/dummy_fct_ppTozbbbb.f /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/out_$proc/SubProcesses/dummy_fct.f
+  #cp /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/condor_bkg/dummy_fct_ppTozbbbb.f /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/out_$proc/SubProcesses/dummy_fct.f
   source /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/condor_bkg/sendOne_cuts_bkg.sh out_$proc
 fi
 
