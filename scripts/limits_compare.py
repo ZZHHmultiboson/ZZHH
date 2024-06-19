@@ -70,9 +70,9 @@ def plot_intervals(user_intervals):
     ax.set_xlim(-8, 8)
 
     fig.tight_layout()
-    plt.savefig(f'../Output/{process}/limits_compare_{process}.png') 
+    plt.savefig(f'/afs/cern.ch/user/c/ccarriva/ZZHH/Output/{process}/limits_compare_{process}.png') 
 
 process = sys.argv[1]
-user_input_intervals = read_user_intervals(f'../Output/{process}/results_{process}.txt')
+user_input_intervals = read_user_intervals(f'/afs/cern.ch/user/c/ccarriva/ZZHH/Output/{process}/results_{process}.txt')
 plot_intervals(user_input_intervals)
 

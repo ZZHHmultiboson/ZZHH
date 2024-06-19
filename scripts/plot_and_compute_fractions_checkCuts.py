@@ -161,7 +161,7 @@ def main():
     valu = args.value
 
 
-    outdir = '../Output/' + processo + '/plotsAndFractions_' + processo
+    outdir = '/afs/cern.ch/user/c/ccarriva/ZZHH/Output/' + processo + '/plotsAndFractions_' + processo
     os.makedirs(outdir, exist_ok=True)
 
     sys.stderr.write('Opening file and forming histo...')

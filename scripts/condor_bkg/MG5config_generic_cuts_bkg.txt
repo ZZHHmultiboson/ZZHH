@@ -3,5 +3,4 @@ set use_syst False
 set nevents 4000                    
 set ebeam1 6500.0                   
 set ebeam2 6500.0      
-set maxjetflavor 4
 set hard_survey 1

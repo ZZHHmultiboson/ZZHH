@@ -33,7 +33,7 @@ def main():
     if (len(sys.argv) > 3): 
         cuts = sys.argv[3]
 
-    out_dir = '../Output/'+ processo + '/plots_' + processo + '_' + cuts
+    out_dir = '/afs/cern.ch/user/c/ccarriva/ZZHH/Output/'+ processo + '/plots_' + processo + '_' + cuts
     os.makedirs(out_dir,exist_ok=True) #check if output dir exist
 
     # --- dictionary for results
@@ -41,11 +41,6 @@ def main():
 
     # --- input file names
     name_list = ['FS0','FS1','FS2','FM0','FM1','FM2','FM3','FM4','FM5','FM7']
-    #if ("wz" in processo):
-    #    name_list = ['FS0','FS1','FS2','FM0','FM1','FM2','FM3','FM4','FM5','FM6']
-    #name_list = ['FS2']
-    #name_list = ['FS0','FS1','FS2','FM1']
-
 
     ## BRANCHING RATIO
     # --- vbf HH process
@@ -57,7 +52,6 @@ def main():
     # if ("wpmz" in processo2): 
     #     br = 0.0148    # leptioic
 
-
     br_H = 5.824e-01  # h->bb (H125, YR4)
     br_Z = 3.3658e-02 # z->ll (e, mu, pdg)
     br_W = 10.86e-02 # w->lnu (e, mu, pdg)
@@ -65,33 +59,25 @@ def main():
     # --- gg->zzh and pp->zzh processes
     # --- 4 accounts for Z decay in e or mu, and combinatory for the 2 Z
     # br = br_H * br_Z * br_Z * 4.
-
-    # --- pp->wzh process
-    # --- 4 accounts for Z decay in e or mu, and W decay in e or mu
-    br = br_H * br_Z * br_W * 4. 
-
     # --- pp->zhh process
     # --- 2 accounts for combinatory for the 2 H
     # br = br_H * br_H * br_Z * 2.
-
-    # --- pp->zhjj process
-    # br = br_H * br_Z * 2.
     '''
-    # Read automatically the Branching Ratio
-    process_file = open('../processes.csv', 'r')
-    processes_def = process_file.readlines()
-    process_file.close()
 
-    for line in processes_def:
-        if line.startswith(processo):
-            expression = line.strip().split(',')[2]
-            br = eval(expression)
-            break
+    # Read automatically the Branching Ratio
+
+    key = sys.argv[1]
+    process_file = '/afs/cern.ch/user/c/ccarriva/ZZHH/processes.json'
+    with open(file_path, 'r') as file:
+        data = json.load(file)
+    br_expression = data[key]["BR"]
+    br = eval(br_expression)
+
     print(f"Branching Ratio = {br}")
     
     # read input file
     for i_name in name_list:
-        csv = '../Output/' + processo + '/xsec/data_' + processo + "/model_Eboli_" + processo2 + "_" + i_name + '.csv' 
+        csv = '/afs/cern.ch/user/c/ccarriva/ZZHH/Output/' + processo + '/xsec/data_' + processo + "/model_Eboli_" + processo2 + "_" + i_name + '.csv' 
         cols = ['operator', 'crossSection', 'crossSectionErr']
         df = pd.read_csv(csv, comment='#', sep=',',names=cols)
         #df = pd.read_csv(csv, comment='#', sep=',')

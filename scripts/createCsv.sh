@@ -3,17 +3,24 @@ fail_exit() { echo "$@" 1>&2; exit 1; }
 
 echo "Start of job on " `date`
 
-for oppe in FS0 FS1 FS2 FM0 FM1 FM2 FM3 FM4 FM5 FM7
-  do
-#  cp ${2}/model_all.csv ${2}/model_Eboli_${1}_${oppe}.csv
-  more run_out_${1}_${oppe}_cuts.out | grep "Cross-sect" | head -1 | sed "s#     Cross-section :   #0.,#g" | sed "s# +- #,#g" | sed "s#pb##g" > ${2}/model_Eboli_${1}_${oppe}.csv
-  more run_out_${1}_${oppe}_cuts.out | grep "Cross-sect" | head -2 | tail -1 | sed "s#     Cross-section :   #-20.,#g" | sed "s# +- #,#g" | sed "s#pb##g" >> ${2}/model_Eboli_${1}_${oppe}.csv
-  more run_out_${1}_${oppe}_cuts.out | grep "Cross-sect" | head -3 | tail -1 | sed "s#     Cross-section :   #-10.,#g" | sed "s# +- #,#g" | sed "s#pb##g" >> ${2}/model_Eboli_${1}_${oppe}.csv
-  more run_out_${1}_${oppe}_cuts.out | grep "Cross-sect" | head -4 | tail -1 | sed "s#     Cross-section :   #-5.,#g" | sed "s# +- #,#g" | sed "s#pb##g" >> ${2}/model_Eboli_${1}_${oppe}.csv
-  more run_out_${1}_${oppe}_cuts.out | grep "Cross-sect" | head -5 | tail -1 | sed "s#     Cross-section :   #-2.,#g" | sed "s# +- #,#g" | sed "s#pb##g" >> ${2}/model_Eboli_${1}_${oppe}.csv
-  more run_out_${1}_${oppe}_cuts.out | grep "Cross-sect" | head -6 | tail -1 | sed "s#     Cross-section :   #2.,#g" | sed "s# +- #,#g" | sed "s#pb##g" >> ${2}/model_Eboli_${1}_${oppe}.csv
-  more run_out_${1}_${oppe}_cuts.out | grep "Cross-sect" | head -7 | tail -1 | sed "s#     Cross-section :   #5.,#g" | sed "s# +- #,#g" | sed "s#pb##g" >> ${2}/model_Eboli_${1}_${oppe}.csv
-  more run_out_${1}_${oppe}_cuts.out | grep "Cross-sect" | head -8 | tail -1 | sed "s#     Cross-section :   #10.,#g" | sed "s# +- #,#g" | sed "s#pb##g" >> ${2}/model_Eboli_${1}_${oppe}.csv
-  more run_out_${1}_${oppe}_cuts.out | grep "Cross-sect" | tail -1 | sed "s#     Cross-section :   #20.,#g" | sed "s# +- #,#g" | sed "s#pb##g" >> ${2}/model_Eboli_${1}_${oppe}.csv
-done
+file="/afs/cern.ch/user/c/ccarriva/ZZHH/processes.json"
+proc=$1
 
+isSignal=$(jq -r ".${proc}.isSignal" $file)
+
+if [ "$isSignal" == "false" ]; then
+  more /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/run_out_${1}_cuts.out | grep "Cross-sect" | head -1 | sed "s#     Cross-section :   #0.,#g" | sed "s# +- #,#g" | sed "s#pb##g" > /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/${2}/model_Eboli_${1}.csv
+else
+  for oppe in FS0 FS1 FS2 FM0 FM1 FM2 FM3 FM4 FM5 FM7
+    do
+    more /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/run_out_${1}_${oppe}_cuts.out | grep "Cross-sect" | head -1 | sed "s#     Cross-section :   #0.,#g" | sed "s# +- #,#g" | sed "s#pb##g" > /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/${2}/model_Eboli_${1}_${oppe}.csv
+    more /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/run_out_${1}_${oppe}_cuts.out | grep "Cross-sect" | head -2 | tail -1 | sed "s#     Cross-section :   #-20.,#g" | sed "s# +- #,#g" | sed "s#pb##g" >> /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/${2}/model_Eboli_${1}_${oppe}.csv
+    more /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/run_out_${1}_${oppe}_cuts.out | grep "Cross-sect" | head -3 | tail -1 | sed "s#     Cross-section :   #-10.,#g" | sed "s# +- #,#g" | sed "s#pb##g" >> /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/${2}/model_Eboli_${1}_${oppe}.csv
+    more /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/run_out_${1}_${oppe}_cuts.out | grep "Cross-sect" | head -4 | tail -1 | sed "s#     Cross-section :   #-5.,#g" | sed "s# +- #,#g" | sed "s#pb##g" >> /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/${2}/model_Eboli_${1}_${oppe}.csv
+    more /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/run_out_${1}_${oppe}_cuts.out | grep "Cross-sect" | head -5 | tail -1 | sed "s#     Cross-section :   #-2.,#g" | sed "s# +- #,#g" | sed "s#pb##g" >> /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/${2}/model_Eboli_${1}_${oppe}.csv
+    more /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/run_out_${1}_${oppe}_cuts.out | grep "Cross-sect" | head -6 | tail -1 | sed "s#     Cross-section :   #2.,#g" | sed "s# +- #,#g" | sed "s#pb##g" >> /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/${2}/model_Eboli_${1}_${oppe}.csv
+    more /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/run_out_${1}_${oppe}_cuts.out | grep "Cross-sect" | head -7 | tail -1 | sed "s#     Cross-section :   #5.,#g" | sed "s# +- #,#g" | sed "s#pb##g" >> /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/${2}/model_Eboli_${1}_${oppe}.csv
+    more /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/run_out_${1}_${oppe}_cuts.out | grep "Cross-sect" | head -8 | tail -1 | sed "s#     Cross-section :   #10.,#g" | sed "s# +- #,#g" | sed "s#pb##g" >> /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/${2}/model_Eboli_${1}_${oppe}.csv
+    more /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/run_out_${1}_${oppe}_cuts.out | grep "Cross-sect" | tail -1 | sed "s#     Cross-section :   #20.,#g" | sed "s# +- #,#g" | sed "s#pb##g" >> /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/${2}/model_Eboli_${1}_${oppe}.csv
+  done
+fi

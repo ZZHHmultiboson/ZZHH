@@ -30,7 +30,7 @@ def main():
     print (processo)
     print (cuts)
 
-    out_dir = '../Output/' + processo + '/plots_perUnitarity_' + processo + '_' + cuts
+    out_dir = '/afs/cern.ch/user/c/ccarriva/ZZHH//Output/' + processo + '/plots_perUnitarity_' + processo + '_' + cuts
     os.makedirs(out_dir,exist_ok=True) #check if output dir exist
 
     # --- dictionary for results
@@ -72,15 +72,14 @@ def main():
     '''
     
     # Read automatically the Branching Ratio
-    process_file = open('../processes.csv', 'r')
-    processes_def = process_file.readlines()
-    process_file.close()
 
-    for line in processes_def:
-        if line.startswith(processo):
-            expression = line.strip().split(',')[2]
-            br = eval(expression)
-            break
+    key = sys.argv[1]
+    process_file = '/afs/cern.ch/user/c/ccarriva/ZZHH/processes.json'
+    with open(file_path, 'r') as file:
+        data = json.load(file)
+    br_expression = data[key]["BR"]
+    br = eval(br_expression)
+
     print(f"Branching Ratio = {br}")
 
 
@@ -90,7 +89,7 @@ def main():
 
             print("now doing ",i_name," with cut at ",c_name," GeV")
 
-            csv = '../Output/' + processo + '/xsec/data_' + processo + "/model_Eboli_" + processo + "_" + i_name + '.csv' 
+            csv = '/afs/cern.ch/user/c/ccarriva/ZZHH/Output/' + processo + '/xsec/data_' + processo + "/model_Eboli_" + processo + "_" + i_name + '.csv' 
             cols = ['operator', 'crossSection', 'crossSectionErr']
             df = pd.read_csv(csv, comment='#', sep=',',names=cols)
             dfcopy = df.copy()
@@ -111,7 +110,7 @@ def main():
                 json_name = str(int(abs(x_arr[opval])))
                 if (x_arr[opval] < 0.):
                     json_name = "minus"+json_name
-                json_file = '../Output/' + processo + '/plotsAndFractions_' + processo + '/fractions_' + processo + '_'+i_name+'_'+json_name+'.json'
+                json_file = '/afs/cern.ch/user/c/ccarriva/ZZHH/Output/' + processo + '/plotsAndFractions_' + processo + '/fractions_' + processo + '_'+i_name+'_'+json_name+'.json'
                 ffrac = open(json_file)
                 fractions = json.load(ffrac)
                 fraction = float(fractions[c_name])/float(fractions['1000000.0'])

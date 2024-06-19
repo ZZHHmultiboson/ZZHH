@@ -1,6 +1,11 @@
 #!/bin/bash
 
+file="/afs/cern.ch/user/c/ccarriva/ZZHH/processes.json"
 proc=$1
+
+isSignal=$(jq -r ".${proc}.isSignal" $file)
+BR=$(jq -r ".${proc}.BR" $file)
+
 
 err_files=()
 for file in /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/*.err; do
@@ -37,7 +42,8 @@ fi
 
 mkdir /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/data_$proc
 source /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/createCsv.sh $proc data_$proc
-rm /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/run_out_$proc_*
+
+#rm /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/run_out_$proc_*
 rm /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/file_out_$proc_*
 rm /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/condor_out_$proc_*
 
@@ -45,14 +51,21 @@ rm /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/condor_out_$proc_*
 
 mkdir /afs/cern.ch/user/c/ccarriva/ZZHH/Output/$proc
 mkdir /afs/cern.ch/user/c/ccarriva/ZZHH/Output/$proc/xsec
-mv /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/data_$proc /afs/cern.ch/user/c/ccarriva/ZZHH/Output/$proc/xsec
-mv /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/out_$proc/Events/ /afs/cern.ch/user/c/ccarriva/ZZHH/Output/$proc/xsec
+cp -r /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/data_$proc /afs/cern.ch/user/c/ccarriva/ZZHH/Output/$proc/xsec
+cp -r /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/out_$proc/Events/ /afs/cern.ch/user/c/ccarriva/ZZHH/Output/$proc/xsec
 
 # Nocuts plots
+
 (
-cd /afs/cern.ch/user/c/ccarriva/ZZHH/CMSSW_13_0_16/src
-cmsenv
-cd -
-python3 /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/my_analyzer_cuts.py $proc $proc m1100
+if [ "$isSignal" == "true" ]; then 
+  cd /afs/cern.ch/user/c/ccarriva/ZZHH/CMSSW_13_0_16/src
+  cmsenv
+  cd /afs/cern.ch/user/c/ccarriva/ZZHH/
+  python3 /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/my_analyzer_cuts.py $proc $proc m1100
+else
+  source Plots/myenv/bin/activate
+  python3 /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/plot_and_compute_fractions_checkCuts_bkg.py $proc SMbkg 0
+fi
 )
+
 exit 0
