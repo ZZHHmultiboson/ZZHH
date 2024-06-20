@@ -44,7 +44,11 @@ rm $cmd_file
 
 echo "all ok now"
 
-operators=("FM0" "FM1" "FM2" "FM3" "FM4" "FM5" "FM7" "FS0" "FS1" "FS2")
+# Working version for 1 operator. Need updates to make it work for complete set of operators
+# (condor jobs require different input, otherwise condor gets offended)
+
+#operators=("FM0" "FM1" "FM2" "FM3" "FM4" "FM5" "FM7" "FS0" "FS1" "FS2")
+operators=("FM0")
 
 if [ "$isSignal" == "true" ]; then
   for oppe in ${operators[@]}
