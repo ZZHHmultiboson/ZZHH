@@ -40,7 +40,9 @@ def main():
     fit_results = {}
 
     # --- input file names
-    name_list = ['FS0','FS1','FS2','FM0','FM1','FM2','FM3','FM4','FM5','FM7']
+    with open('operators.json', 'r') as file:
+    	operators = json.load(file)
+    	name_list = [key for key, value in operators.items() if value["turn"] == "on"]
 
     ## BRANCHING RATIO
     # --- vbf HH process
@@ -68,7 +70,7 @@ def main():
 
     key = sys.argv[1]
     process_file = '/afs/cern.ch/user/c/ccarriva/ZZHH/processes.json'
-    with open(file_path, 'r') as file:
+    with open(process_file, 'r') as file:
         data = json.load(file)
     br_expression = data[key]["BR"]
     br = eval(br_expression)
@@ -168,7 +170,8 @@ def main():
 
     num_color = len(fit_results.keys())
     color_list  = sns.color_palette('hls',num_color)
-    legend_list = ['$f_{S0}$','$f_{S1}$','$f_{S2}$','$f_{M0}$','$f_{M1}$','$f_{M2}$','$f_{M3}$','$f_{M4}$','$f_{M5}$','$f_{M7}$']
+    legend_list = [f"$f_{{{name[1:]}}}$" for name in name_list]
+#    legend_list = ['$f_{S0}$','$f_{S1}$','$f_{S2}$','$f_{M0}$','$f_{M1}$','$f_{M2}$','$f_{M3}$','$f_{M4}$','$f_{M5}$','$f_{M7}$']
     
     for idk, key in enumerate(fit_results.keys()):
 

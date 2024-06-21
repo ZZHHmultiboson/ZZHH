@@ -63,20 +63,21 @@ else
   rm /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/condor_out_${proc}*
   rm /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/run_out_${proc}*
   cp -r /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/out_$proc/Events/ /afs/cern.ch/user/c/ccarriva/ZZHH/Output/$proc/xsec
+  cp -r /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/data_$proc /afs/cern.ch/user/c/ccarriva/ZZHH/Output/$proc/xsec
 fi
 
 # Nocuts plots
 
-#(
-#if [ "$isSignal" == "true" ]; then 
-#  cd /afs/cern.ch/user/c/ccarriva/ZZHH/CMSSW_13_0_16/src
-#  cmsenv
-#  cd /afs/cern.ch/user/c/ccarriva/ZZHH/
-#  python3 /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/my_analyzer_cuts.py $proc $proc m1100
-#else
-#  source Plots/myenv/bin/activate
-#  python3 /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/plot_and_compute_fractions_checkCuts_bkg.py $proc SMbkg 0
-#fi
-#)
+(
+if [ "$isSignal" == "true" ]; then 
+  cd /afs/cern.ch/user/c/ccarriva/ZZHH/CMSSW_13_0_16/src
+  cmsenv
+  cd /afs/cern.ch/user/c/ccarriva/ZZHH/
+  python3 /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/my_analyzer_cuts.py $proc $proc m1100
+else
+  source myenv/bin/activate
+  python3 /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/plot_and_compute_fractions_checkCuts_bkg.py $proc SMbkg 0
+fi
+)
 
 exit 0

@@ -1,12 +1,12 @@
 {
-    "FM0": "on",
-    "FM1": "on",
-    "FM2": "on",
-    "FM3": "on",
-    "FM4": "on",
-    "FM5": "on",
-    "FM7": "on",
-    "FS0": "on",
-    "FS1": "on",
-    "FS2": "on"
+    "FM0": {"turn": "on", "best limit": "[-1.0,1.0]"},
+    "FM1": {"turn": "on", "best limit": "[-3.0,3.0]"},
+    "FM2": {"turn": "on", "best limit": "[-1.8,1.8]"},
+    "FM3": {"turn": "on", "best limit": "-"},
+    "FM4": {"turn": "on", "best limit": "[-3.3,3.3]"},
+    "FM5": {"turn": "on", "best limit": "[-3.4,3.6]"},
+    "FM7": {"turn": "on", "best limit": "[-5.1,5.1]"},
+    "FS0": {"turn": "on", "best limit": "[-4.2,4.2]"},
+    "FS1": {"turn": "on", "best limit": "[-5.2,5.2]"},
+    "FS2": {"turn": "on", "best limit": "-"}
 }
