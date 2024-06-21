@@ -1,4 +1,4 @@
-launch SIGNAL -n run_OPERAT_0_cuts            
+launch SIGNAL_OPERAT -n run_OPERAT_0_cuts            
 set anoinputs 1 1e-20             
 set anoinputs 2 1e-20             
 set anoinputs 3 1e-20             
@@ -24,21 +24,21 @@ set use_syst False
 set nevents 4000
 set ebeam1 6500.0
 set ebeam2 6500.0
-launch SIGNAL -n run_OPERAT_minus20_cuts            
+launch SIGNAL_OPERAT -n run_OPERAT_minus20_cuts            
 set anoinputs BABA -2e-11
-launch SIGNAL -n run_OPERAT_minus10_cuts            
+launch SIGNAL_OPERAT -n run_OPERAT_minus10_cuts            
 set anoinputs BABA -1e-11
-launch SIGNAL -n run_OPERAT_minus5_cuts            
+launch SIGNAL_OPERAT -n run_OPERAT_minus5_cuts            
 set anoinputs BABA -5e-12
-launch SIGNAL -n run_OPERAT_minus2_cuts            
+launch SIGNAL_OPERAT -n run_OPERAT_minus2_cuts            
 set anoinputs BABA -2e-12
-launch SIGNAL -n run_OPERAT_2_cuts            
+launch SIGNAL_OPERAT -n run_OPERAT_2_cuts            
 set anoinputs BABA 2e-12
-launch SIGNAL -n run_OPERAT_5_cuts            
+launch SIGNAL_OPERAT -n run_OPERAT_5_cuts            
 set anoinputs BABA 5e-12
-launch SIGNAL -n run_OPERAT_10_cuts            
+launch SIGNAL_OPERAT -n run_OPERAT_10_cuts            
 set anoinputs BABA 1e-11
-launch SIGNAL -n run_OPERAT_20_cuts            
+launch SIGNAL_OPERAT -n run_OPERAT_20_cuts            
 set anoinputs BABA 2e-11
 
 

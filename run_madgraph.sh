@@ -22,7 +22,15 @@ echo "BR: $BR"
 
 # Launching MadGraph
 
-rm -r out_$proc
+if [ "$isSignal" == "true" ]; then
+  rm -r out_${proc}_*
+  rm -r condor_${proc}
+  mkdir /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/condor_out_$proc
+  mkdir /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/condor_out_$proc/exe
+else
+  rm -r out_${proc}
+fi
+
 cmd_file="/afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/mg5_cmd.txt"
 
   if [ "$isSignal" == "true" ]; then
@@ -44,20 +52,33 @@ rm $cmd_file
 
 echo "all ok now"
 
-# Working version for 1 operator. Need updates to make it work for complete set of operators
-# (condor jobs require different input, otherwise condor gets offended)
+operators=()
 
-#operators=("FM0" "FM1" "FM2" "FM3" "FM4" "FM5" "FM7" "FS0" "FS1" "FS2")
-operators=("FM0")
+for key in $(jq -r 'keys[]' /afs/cern.ch/user/c/ccarriva/ZZHH/operators.json); do
+  value=$(jq -r ".${key}" /afs/cern.ch/user/c/ccarriva/ZZHH/operators.json)
+  if [ "$value" == "on" ]; then
+    operators+=("$key")
+  fi
+done
+
+echo "Operators: ${operators[@]}"
 
 if [ "$isSignal" == "true" ]; then
   for oppe in ${operators[@]}
   do
-    cp /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/condor_sign/dummy_fct_forWZ.f /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/out_$proc/SubProcesses/dummy_fct.f
-    source /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/condor_sign/sendOne_cuts.sh out_$proc $oppe
+    cp -r /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/out_$proc /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/out_${proc}_${oppe}
+    cp /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/condor_sign/dummy_fct_forWZ.f /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/out_${proc}_${oppe}/SubProcesses/dummy_fct.f
+  done
+#else
+  #cp /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/condor_bkg/dummy_fct_ppTozbbbb.f /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/out_$proc/SubProcesses/dummy_fct.f
+fi
+
+if [ "$isSignal" == "true" ]; then
+  for oppe in ${operators[@]}
+  do
+    source /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/condor_sign/sendOne_cuts.sh out_${proc} $oppe
   done
 else
-  #cp /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/condor_bkg/dummy_fct_ppTozbbbb.f /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/out_$proc/SubProcesses/dummy_fct.f
   source /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/condor_bkg/sendOne_cuts_bkg.sh out_$proc
 fi
 

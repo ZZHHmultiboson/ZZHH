@@ -39,6 +39,7 @@ then
   opnum=11
 fi
 
-cat /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/condor_sign/MG5config_generic_cuts.txt | sed "s#SIGNAL#${1}#g" | sed "s#OPERAT#${2}#g" | sed "s#BABA#${opnum}#g" > /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/file_${1}_${2}.txt
-cat /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/condor_sign/condor_cuts.sub | sed "s#SIGNAL#${1}#g" | sed "s#OPERAT#${2}#g" > /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/condor_${1}_${2}_cuts.sub
-condor_submit /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/condor_${1}_${2}_cuts.sub
+cat /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/condor_sign/MG5config_generic_cuts.txt | sed "s#SIGNAL#${1}#g" | sed "s#OPERAT#${2}#g" | sed "s#BABA#${opnum}#g" > /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/condor_${1}/file_${1}_${2}.txt
+cat /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/condor_sign/condor_cuts.sub | sed "s#SIGNAL#${1}#g" | sed "s#OPERAT#${2}#g" > /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/condor_${1}/condor_${1}_${2}_cuts.sub
+cat /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/condor_sign/copyandsend_generic_cuts.sh | sed "s#SIGNAL#${1}#g" | sed "s#OPERAT#${2}#g" > /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/condor_${1}/exe/copyandsend_generic_cuts_${2}.sh
+condor_submit /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/condor_${1}/condor_${1}_${2}_cuts.sub
