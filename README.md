@@ -22,7 +22,7 @@ Define your process in processes.json using the following syntax:
 }
 
 ```
-where the key is the process name.
+where the key is the process name. Turn on operators of interest in operators.json.
 
 > Branching ratios for bosons decays are defined in my_analyzer_cuts.py:
 > * br_H = 5.824e-01 [ h->bb (H125, YR4) ]  
