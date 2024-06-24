@@ -18,13 +18,13 @@ Define your process in processes.json using the following syntax:
 "wpzh": {
     "isSignal": true,
     "mg5_syntax": "generate p p > w+ z h QED=3",
-    "BR": "br_H * br_Z * br_W * 4."
+    "BR": "br_H * br_Z * br_W * 4.",
+    "bkg": "wpzbb"
 }
 
 ```
-where the key is the process name. Turn on operators of interest in operators.json.
+where the key is the process name. Turn on operators of interest in operators.json. Values of leptonic final states are defined in decays.json.
 
-> Branching ratios for bosons decays are defined in my_analyzer_cuts.py:
 > * br_H = 5.824e-01 [ h->bb (H125, YR4) ]  
 > * br_Z = 3.3658e-02 [ z->ll (e, mu, pdg) ]  
 > * br_W = 10.86e-02 [ w->lnu (e, mu, pdg) ]  
@@ -36,7 +36,7 @@ voms-proxy-init -voms cms -rfc --valid 168:0
 ./run_madgraph.sh $PROC_NAME
 ./run_xsec.sh $PROC_NAME
 ```
-Cross section results, as well as plots of cross section as a function of Fi, are stored in Output/$PROC_NAME directory.
+Cross section results, as well as plots of cross section as a function of WCs, are stored in Output/$PROC_NAME directory.
 
 ## EFT limits w/ unitarity bounds
 
@@ -45,10 +45,10 @@ To plot xsec as a function of Fi at each mass point, compare the two curves and 
 
 ```bash
 cd ..
-./run_unitarity.sh $PROC_NAME $CUTS $REF_OP
+./run_unitarity.sh $PROC_NAME $CUTS
 ```
 
-$CUTS is an indicative expression of the global cut considered (e.g. for m(W,Z,H)=1.1 TeV, it can be mWZH1100).  The script takes as input the experimental limit on a chosen operator to derive limits on other operators, so you have to specify it as third argument ($REF_OP).  
+$CUTS is an indicative expression of the global cut considered (e.g. for m(W,Z,H)=1.1 TeV, it can be mWZH1100).   
 >Best experimental limits to date are considered:
 >
 >| Wilson Coefficient | Best Experimental Limit | Analysis                       |

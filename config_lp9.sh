@@ -40,13 +40,11 @@ find . -type f -exec sed -i "s|afs', 'cern.ch', 'user', 'c', 'ccarriva', 'ZZHH'|
 
 # Plots repository
 echo "Setting up plotting enviroment..."
-cd Plots
-
-cp ../scripts/plot_and_compute_fractions_checkCuts.py .
-cp ../scripts/my_analyzer_unitarity.py .
-cp ../scripts/unitarity_estimate.py .
-cp ../scripts/plot_only.py .
-cp ../scripts/limits_compare.py .
+#cp ../scripts/plot_and_compute_fractions_checkCuts.py .
+#cp ../scripts/my_analyzer_unitarity.py .
+#cp ../scripts/unitarity_estimate.py .
+#cp ../scripts/limits_compare.py .
+#cp ../scripts/plot_only.py .
 
 python3 -m venv myenv
 source myenv/bin/activate
