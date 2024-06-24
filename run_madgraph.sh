@@ -52,10 +52,11 @@ rm $cmd_file
 
 echo "all ok now"
 
+operators_json="/afs/cern.ch/user/c/ccarriva/ZZHH/operators.json"
 operators=()
-
-for key in $(jq -r 'keys[]' /afs/cern.ch/user/c/ccarriva/ZZHH/operators.json); do
-  value=$(jq -r ".${key}" /afs/cern.ch/user/c/ccarriva/ZZHH/operators.json)
+for key in $(jq -r 'keys[]' "$operators_json"); do
+  value=$(jq -r ".${key}.turn" "$operators_json")
+  echo "Operator: $key, Turn: $value" # Debugging line
   if [ "$value" == "on" ]; then
     operators+=("$key")
   fi

@@ -14,6 +14,7 @@ import json
 from cycler import cycler
 import math
 from ROOT import TFeldmanCousins
+import sys
 
 
 def func(x,a,b,c):
@@ -61,14 +62,10 @@ def find_interseccion(xpoints,ypoints,coeff):
 def main():
 
     # --- out directory
-    outdir = './220530_unitarity_zhh_Run2_115-135/'
-    #outdir = './220525_unitarity_zhh_HL_115-135/'
-    #outdir = './unitarity_zhh_HL_105-145/'
-    #outdir = './unitarity_zhh_HL_110-140/'
-    #outdir = './unitarity_zhh_HL_115-135/'
-    #outdir = './unitarity_zhh_HL_120-130/'
+    process = sys.argv[1]
+    cutss = sys.argv[2]
+    outdir = '/afs/cern.ch/user/c/ccarriva/ZZHH/Output/'+process+'/unitarityPlots/'
     os.makedirs(outdir, exist_ok=True)
-
     # --- inputs
     lumi = 140. #Run2
     #lumi = 3000. #HL-LHC
@@ -93,6 +90,13 @@ def main():
         'FM5' : 201.0619,
         'FM7' : 328.3328
     }
+
+    processes_def = '/afs/cern.ch/user/c/ccarriva/ZZHH/processes.json'
+    with open(processes_def, 'r') as file:
+        data = json.load(file)
+    background = data.get(process, {}).get('bkg')
+    print("Background for this process:", background)
+
     xpoints = [1200.,1400.,1600.,1800.,2000.,2500.,3000.,3500.,4000.,5000.]
     ypoints = [0.,0.,0.,0.,0.,0.,0.,0.,0.,0.]
     ypointsminus = [0.,0.,0.,0.,0.,0.,0.,0.,0.,0.]
@@ -107,15 +111,12 @@ def main():
         newc_name = c_name+'.0'
                     
         # --- bkg file with fractions
-        #json_fileb = '/eos/user/a/acappati/ZZH/plotsAndFractions_220519_process4_mbb_120-130/fractions_out_process4_ppTozbbbb_SMbkg_0.json' # mbb cut [120, 130], 5 GeV resol 
-        json_fileb = '/eos/user/a/acappati/ZZH/plotsAndFractions_220519_process4_mbb_115-135/fractions_out_process4_ppTozbbbb_SMbkg_0.json' # mbb cut [115, 135], 10 GeV resol 
-        #json_fileb = '/eos/user/a/acappati/ZZH/plotsAndFractions_220519_process4_mbb_110-140/fractions_out_process4_ppTozbbbb_SMbkg_0.json' # mbb cut [110, 140], 15 GeV resol 
-        #json_fileb = '/eos/user/a/acappati/ZZH/plotsAndFractions_220519_process4_mbb_105-145/fractions_out_process4_ppTozbbbb_SMbkg_0.json' # mbb cut [105, 145], 20 GeV resol
+        json_fileb = '/afs/cern.ch/user/c/ccarriva/ZZHH/Output/'+background+'/plotsAndFractions_'+background+'/fractions_'+background+'_SMbkg_0.json' # mbb cut [115, 135], 10 GeV resol 
         ffracb = open(json_fileb)
         fractionsb = json.load(ffracb)
 
         # signal fit results
-        f = open('plots_perUnitarity_Eboli_LO_ppTozhh_mZHH1100/fitResults_'+c_name+'.json',)
+        f = open('/afs/cern.ch/user/c/ccarriva/ZZHH/Output/'+process+'/plots_perUnitarity_'+process+'_'+cutss+'/fitResults_'+c_name+'.json',)
         print('Reading file fitResults_'+c_name+'.json ...')
         data = json.load(f)
         sm_signal = data['FM0']['c']*lumi*total_eff_sig
@@ -123,14 +124,22 @@ def main():
         #print('DEBUG ',data['FM0']['c'], data['FM1']['c'], data['FM2']['c'], data['FM3']['c'], data['FM4']['c'], data['FM5']['c'], data['FM7']['c'], data['FS0']['c'], data['FS1']['c'], data['FS2']['c'])
 
         # read csv file with bkg xsec
-        #csv = 'data_ppzbbbb_mZbbbb1100/model_SM_mbb_120-130.csv' # mbb cut [120, 130], 5 GeV resol   
-        csv = 'data_ppzbbbb_mZbbbb1100/model_SM_mbb_115-135.csv' # mbb cut [115, 135], 10 GeV resol   
-        #csv = 'data_ppzbbbb_mZbbbb1100/model_SM_mbb_110-140.csv' # mbb cut [110, 140], 15 GeV resol   
-        #csv = 'data_ppzbbbb_mZbbbb1100/model_SM_mbb_105-145.csv' # mbb cut [105, 145], 20 GeV resol   
+        csv = '/afs/cern.ch/user/c/ccarriva/ZZHH/Output/'+background+'/xsec/data_'+background+'/model_Eboli_'+background+'.csv' # mbb cut [115, 135], 10 GeV resol    
 
         df = pd.read_csv(csv, comment='#', sep=',')
         
-        sm_bkg_tot = 1000.*2.*0.033658*df['crossSection'].values # transform bkg xsec from pb in fb, and multiply for BR (2*Z->ll, e, mu)
+        processes_file = '/afs/cern.ch/user/c/ccarriva/ZZHH/processes.json'
+        decay_file = '/afs/cern.ch/user/c/ccarriva/ZZHH/decay.json'
+        with open(processes_file, 'r') as file:
+            processes_data = json.load(file)
+        with open(decay_file, 'r') as file:
+            decay_data = json.load(file)
+        br_expression = processes_data.get(process, {}).get('BR')
+        for key, value in decay_data.items():
+            br_expression = br_expression.replace(key, str(value))
+        br = eval(br_expression)
+
+        sm_bkg_tot = 1000.*br*df['crossSection'].values # transform bkg xsec from pb in fb, and multiply for BR (2*Z->ll, e, mu)
         sm_bkg = sm_bkg_tot[0]*float(fractionsb[newc_name])/float(fractionsb['1000000.0'])*lumi*total_eff_bkg
         #print( "sig/bkg = ", sm_signal, sm_bkg)
 
@@ -147,7 +156,7 @@ def main():
     for i_name in name_list:
         i = -1
         for c_name in cuts_list:
-            f = open('plots_perUnitarity_Eboli_LO_ppTozhh_mZHH1100/fitResults_'+c_name+'.json',)
+            f = open('/afs/cern.ch/user/c/ccarriva/ZZHH/Output/'+process+'plots_perUnitarity_'+process+'_'+cutss+'/fitResults_'+c_name+'.json',)
             data = json.load(f)
             
             aa = data[i_name]['a']
@@ -228,8 +237,8 @@ def main():
 
         
         plt.tight_layout()
-        plt.gcf().savefig(os.path.join(outdir, 'unitarityPlot_zhh_'+i_name+'.png'), dpi=300)
-        plt.gcf().savefig(os.path.join(outdir, 'unitarityPlot_zhh_'+i_name+'.pdf'), dpi=300)
+        plt.gcf().savefig(os.path.join(outdir, 'unitarityPlot_'+process+'_'+i_name+'.png'), dpi=300)
+        plt.gcf().savefig(os.path.join(outdir, 'unitarityPlot_'+process+'_'+i_name+'.pdf'), dpi=300)
         plt.close(fig_all) #libera memoria da fig        
     
   

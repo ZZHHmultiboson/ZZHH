@@ -69,14 +69,25 @@ def main():
     # Read automatically the Branching Ratio
 
     key = sys.argv[1]
-    process_file = '/afs/cern.ch/user/c/ccarriva/ZZHH/processes.json'
-    with open(process_file, 'r') as file:
-        data = json.load(file)
-    br_expression = data[key]["BR"]
-    br = eval(br_expression)
-
-    print(f"Branching Ratio = {br}")
+    #process_file = '/afs/cern.ch/user/c/ccarriva/ZZHH/processes.json'
+    #with open(process_file, 'r') as file:
+    #    data = json.load(file)
+    #br_expression = data[key]["BR"]
+    #br = eval(br_expression)
+    #print(f"Branching Ratio = {br}")
     
+    processes_file = '/afs/cern.ch/user/c/ccarriva/ZZHH/processes.json'
+    decay_file = '/afs/cern.ch/user/c/ccarriva/ZZHH/decay.json'
+    with open(processes_file, 'r') as file:
+        processes_data = json.load(file)
+    with open(decay_file, 'r') as file:
+        decay_data = json.load(file)
+    br_expression = processes_data.get(process, {}).get('BR')
+    for key, value in decay_data.items():
+        br_expression = br_expression.replace(key, str(value))
+    br = eval(br_expression)
+    print(f"Branching Ratio = {br}")
+
     # read input file
     for i_name in name_list:
         csv = '/afs/cern.ch/user/c/ccarriva/ZZHH/Output/' + processo + '/xsec/data_' + processo + "/model_Eboli_" + processo2 + "_" + i_name + '.csv' 

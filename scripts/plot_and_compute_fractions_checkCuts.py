@@ -28,7 +28,6 @@ def plot(histograms, processo, oppe, valu, outdir):
         plt.gcf().savefig(os.path.join(outdir, 'plot_' + observable + '_' + processo + '_' + oppe + '_' + valu +'.png'))
 
         
-
 def setup_histograms():
     '''Histogram initialization. Add new histos here.'''
     
@@ -163,14 +162,13 @@ def main():
 
     outdir = '/afs/cern.ch/user/c/ccarriva/ZZHH/Output/' + processo + '/plotsAndFractions_' + processo
     os.makedirs(outdir, exist_ok=True)
-
     sys.stderr.write('Opening file and forming histo...')
     histograms = analyze(processo, oppe, valu, outdir)
     sys.stderr.write('\nHistogram has been filled.')
     sys.stderr.write('\nSaving plot...')
     plot(histograms, processo, oppe, valu, outdir)
     sys.stderr.write(f'\nPlot(s) saved in {outdir}.\n')
-
+    
 if __name__=="__main__":
     main()
     sys.exit(0)

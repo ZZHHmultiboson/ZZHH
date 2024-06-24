@@ -1,10 +1,20 @@
 import json
 
-# Leggi il file JSON
-with open('operators.json', 'r') as file:
-    operators = json.load(file)
+processes_file = '/afs/cern.ch/user/c/ccarriva/ZZHH/processes.json'
+decay_file = '/afs/cern.ch/user/c/ccarriva/ZZHH/decay.json'
 
-# Filtra gli operatori con "turn" uguale a "on"
-name_list = [key for key, value in operators.items() if value["turn"] == "on"]
+process = "zhjj"
 
-print(name_list)
+with open(processes_file, 'r') as file:
+    processes_data = json.load(file)
+
+with open(decay_file, 'r') as file:
+    decay_data = json.load(file)
+
+br_expression = processes_data.get(process, {}).get('BR')
+
+for key, value in decay_data.items():
+    br_expression = br_expression.replace(key, str(value))
+
+calculated_br = eval(br_expression)
+print(f"L'espressione BR per il processo {process} è: {calculated_br}")

@@ -37,7 +37,9 @@ def main():
     fit_results = {}
 
     # --- input file names
-    name_list = ['FS0','FS1','FS2','FM0','FM1','FM2','FM3','FM4','FM5','FM7']
+    with open('operators.json', 'r') as file:
+    	operators = json.load(file)
+    	name_list = [key for key, value in operators.items() if value["turn"] == "on"]
     cuts_list = ['1000000.0','1200.0','1400.0','1600.0','1800.0','2000.0','2500.0','3000.0','3500.0','4000.0','5000.0']
     
     ## BRANCHING RATIO
@@ -74,14 +76,25 @@ def main():
     # Read automatically the Branching Ratio
 
     key = sys.argv[1]
-    process_file = '/afs/cern.ch/user/c/ccarriva/ZZHH/processes.json'
-    with open(file_path, 'r') as file:
-        data = json.load(file)
-    br_expression = data[key]["BR"]
+    #process_file = '/afs/cern.ch/user/c/ccarriva/ZZHH/processes.json'
+    #with open(process_file, 'r') as file:
+    #    data = json.load(file)
+    #br_expression = data[key]["BR"]
+    #br = eval(br_expression)
+
+    #print(f"Branching Ratio = {br}")
+
+    processes_file = '/afs/cern.ch/user/c/ccarriva/ZZHH/processes.json'
+    decay_file = '/afs/cern.ch/user/c/ccarriva/ZZHH/decay.json'
+    with open(processes_file, 'r') as file:
+        processes_data = json.load(file)
+    with open(decay_file, 'r') as file:
+        decay_data = json.load(file)
+    br_expression = processes_data.get(process, {}).get('BR')
+    for key, value in decay_data.items():
+        br_expression = br_expression.replace(key, str(value))
     br = eval(br_expression)
-
     print(f"Branching Ratio = {br}")
-
 
     for c_name in cuts_list:
     
