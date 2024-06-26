@@ -29,6 +29,12 @@
         "BR": "br_H * br_W * 2.",
         "bkg": "wmbbjj"
     },
+    "zhh": {
+        "isSignal": true,
+        "mg5_syntax": "generate p p > z h h QED=3",
+        "BR": "br_H * br_H * br_Z * 2.",
+        "bkg": "zbbbb"
+    },
     "wpzbb": {
         "isSignal": false,
         "mg5_syntax": "generate p p > w+ z b b~ QED=3",
@@ -57,6 +63,12 @@
         "isSignal": false,
         "mg5_syntax": "generate p p > w- b b~ j j",
         "BR": "br_W * 2.",
+        "bkg": "none"
+    },
+    "zbbbb": {
+        "isSignal": false,
+        "mg5_syntax": "generate p p > z b b~ b b~ QED=3",
+        "BR": "br_H * br_H * br_Z * 2.",
         "bkg": "none"
     }
 }

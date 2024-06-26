@@ -76,7 +76,11 @@ def main():
     total_eff_bkg = eff*acceptans_bkg
 
     cuts_list = ['1000000','1200','1400','1600','1800','2000','2500','3000','3500','4000','5000']
-    name_list = ['FS0','FS1','FS2','FM0','FM1','FM2','FM3','FM4','FM5','FM7']
+    with open('/afs/cern.ch/user/c/ccarriva/ZZHH/operators.json', 'r') as file:
+        data2 = json.load(file)
+    name_list = [key for key, value in data2.items() if value['turn'] == 'on']
+    #name_list = ['FS0','FS1','FS2','FM0','FM1','FM2','FM3','FM4','FM5','FM7']
+
     # coeff from Eboli paper
     data_coeff = {
         'FS0' : 100.531,
@@ -119,14 +123,14 @@ def main():
         f = open('/afs/cern.ch/user/c/ccarriva/ZZHH/Output/'+process+'/plots_perUnitarity_'+process+'_'+cutss+'/fitResults_'+c_name+'.json',)
         print('Reading file fitResults_'+c_name+'.json ...')
         data = json.load(f)
-        sm_signal = data['FM0']['c']*lumi*total_eff_sig
+        sm_signal = data['FM0']['c']*lumi*total_eff_sig #vertice della parabola
         #DEBUG
         #print('DEBUG ',data['FM0']['c'], data['FM1']['c'], data['FM2']['c'], data['FM3']['c'], data['FM4']['c'], data['FM5']['c'], data['FM7']['c'], data['FS0']['c'], data['FS1']['c'], data['FS2']['c'])
 
         # read csv file with bkg xsec
         csv = '/afs/cern.ch/user/c/ccarriva/ZZHH/Output/'+background+'/xsec/data_'+background+'/model_Eboli_'+background+'.csv' # mbb cut [115, 135], 10 GeV resol    
-
-        df = pd.read_csv(csv, comment='#', sep=',')
+        cols = ['operator', 'crossSection', 'crossSectionErr']
+        df = pd.read_csv(csv, comment='#', sep=',',names=cols)
         
         processes_file = '/afs/cern.ch/user/c/ccarriva/ZZHH/processes.json'
         decay_file = '/afs/cern.ch/user/c/ccarriva/ZZHH/decay.json'
@@ -156,7 +160,7 @@ def main():
     for i_name in name_list:
         i = -1
         for c_name in cuts_list:
-            f = open('/afs/cern.ch/user/c/ccarriva/ZZHH/Output/'+process+'plots_perUnitarity_'+process+'_'+cutss+'/fitResults_'+c_name+'.json',)
+            f = open('/afs/cern.ch/user/c/ccarriva/ZZHH/Output/'+process+'/plots_perUnitarity_'+process+'_'+cutss+'/fitResults_'+c_name+'.json',)
             data = json.load(f)
             
             aa = data[i_name]['a']

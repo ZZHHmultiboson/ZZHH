@@ -1,17 +1,10 @@
 import matplotlib.pyplot as plt
 import sys
+import json
 
-coefficients = {
-    'FS0': '[-4.2,4.2]',
-    'FS1': '[-5.2,5.2]',
-    'FS2': '-',
-    'FM0': '[-1.0,1.0]',
-    'FM1': '[-3.0,3.0]',
-    'FM2': '[-1.8,1.8]',
-    'FM4': '[-3.3,3.3]',
-    'FM5': '[-3.4,3.6]',
-    'FM7': '[-5.1,5.1]'
-}
+with open('/afs/cern.ch/user/c/ccarriva/ZZHH/operators.json', 'r') as file:
+    data = json.load(file)
+coefficients = {key: value['best limit'] for key, value in data.items() if value['turn'] == 'on'}
 
 def parse_interval(interval):
     """Parse an interval from string format to a tuple of floats."""
@@ -48,7 +41,9 @@ def read_user_intervals(filename):
         return user_intervals
 
 def plot_intervals(user_intervals):
-    labels = ['FS0', 'FS1', 'FS2', 'FM0', 'FM1', 'FM2', 'FM4', 'FM5', 'FM7']
+    with open('/afs/cern.ch/user/c/ccarriva/ZZHH/operators.json', 'r') as file:
+        data2 = json.load(file)
+    labels = [key for key, value in data2.items() if value['turn'] == 'on']
     table_intervals = [parse_interval(coefficients[key]) for key in labels]
     user_parsed_intervals = [parse_interval(user_intervals.get(key, "-")) for key in labels]
     x = range(len(labels))  
