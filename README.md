@@ -23,7 +23,7 @@ Define your process in processes.json using the following syntax:
 }
 
 ```
-where the key is the process name. Turn on operators of interest in operators.json. Values of branching ratios leptonic final states are defined in decays.json.
+where the key is the process name. Turn on operators of interest in operators.json. Values of branching ratios for leptonic decays are defined in decays.json.
 
 > * br_H = 5.824e-01 [ h->bb (H125, YR4) ]  
 > * br_Z = 3.3658e-02 [ z->ll (e, mu, pdg) ]  
