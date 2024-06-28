@@ -47,7 +47,6 @@ Limits on EFT parameters are derived at the mass point given by the intersection
 To plot xsec as a function of Fi at each mass point, compare the two curves and derive the final limit, run:
 
 ```bash
-cd ..
 ./run_unitarity.sh $PROC_NAME $CUTS
 ```
 
