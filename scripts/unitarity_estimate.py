@@ -26,6 +26,8 @@ def vertexy(a,b,c):
     return -(b**2-4.*a*c)/(4.*a)
 
 def inversefuncplus(y,a,b,c):
+    print ("############")
+    print ("CIAONE:      ", b**2 - 4.*a*(c-y))
     if (b**2-4.*a*(c-y)) > 0 : 
         return (-b+math.sqrt(b**2-4.*a*(c-y)))/(2.*a) 
     return 1000.
@@ -111,7 +113,7 @@ def main():
     # fit parameters for all data (nocut)
 
     #f_nocut = open('plots_perUnitarity_wpzh_mWZH1100/fitResults_1000000.json',)
-    f_nocut = open(f'../Output/{process}/plots_perUnitarity_{process}_{cutss}/fitResults_1000000.json')
+    f_nocut = open(f'/afs/cern.ch/user/c/ccarriva/ZZHH//Output/{process}/plots_perUnitarity_{process}_{cutss}/fitResults_1000000.json')
 
     data_nocut = json.load(f_nocut)
 
@@ -120,12 +122,12 @@ def main():
     cnocut = data_nocut[oppe]['c']
     i = -1
 
-    with open(f'../Output/{process}/results_{process}.txt', 'w') as fi: # ouput file 
+    with open(f'/afs/cern.ch/user/c/ccarriva/ZZHH/Output/{process}/results_{process}.txt', 'w') as fi: # ouput file 
         for c_name in cuts_list:
 
             # fit parameters for each cut
             
-            f = open(f'../Output/{process}/plots_perUnitarity_{process}_{cutss}/fitResults_'+c_name+'.json',)
+            f = open(f'/afs/cern.ch/user/c/ccarriva/ZZHH/Output/{process}/plots_perUnitarity_{process}_{cutss}/fitResults_'+c_name+'.json',)
             
             data = json.load(f)
             
@@ -140,7 +142,7 @@ def main():
             print ("Excluded xsec no cut = ",cross95," Relative xsec 95% interval = ",distance_to_min)
             
             # now rescale for statistics!
-            json_file = '../Output/'+ process + '/plotsAndFractions_'+ process +'/fractions_'+process+'_'+oppe+'_0.json'
+            json_file = '/afs/cern.ch/user/c/ccarriva/ZZHH/Output/'+ process + '/plotsAndFractions_'+ process +'/fractions_'+process+'_'+oppe+'_0.json'
             ffrac = open(json_file)
             fractions = json.load(ffrac)
             newc_name = c_name+'.0'
@@ -213,7 +215,7 @@ def main():
         #ax.set_xticks(x_ticks)
     
         plt.tight_layout()
-        plt.savefig('../Output/'+process+'/unitarityPlots/unitarityPlot_'+process+'_'+oppe+'.png', dpi=300) #save plot, resolution
+        plt.savefig('/afs/cern.ch/user/c/ccarriva/ZZHH/Output/'+process+'/unitarityPlots/unitarityPlot_'+process+'_'+oppe+'.png', dpi=300) #save plot, resolution
         #        plt.show() #mi mostra la finestra del plot, da togliere se usi nelle code
         plt.close(fig_all) #libera memoria da fig
         
@@ -223,7 +225,7 @@ def main():
                 continue
             else:
                 for c_name in cuts_list:
-                    f = open('../Output/'+process+'/plots_perUnitarity_'+process+'_'+cutss+'/fitResults_'+c_name+'.json',)
+                    f = open('/afs/cern.ch/user/c/ccarriva/ZZHH/Output/'+process+'/plots_perUnitarity_'+process+'_'+cutss+'/fitResults_'+c_name+'.json',)
                     data = json.load(f)
                     
                     aa = data[i_name]['a']
@@ -295,7 +297,7 @@ def main():
                 #ax.set_xticks(x_ticks)
                 
                 plt.tight_layout()
-                plt.savefig('../Output/'+process+'/unitarityPlots/unitarityPlot_wpzh_'+i_name+'.png', dpi=300) #save plot, resolution
+                plt.savefig('/afs/cern.ch/user/c/ccarriva/ZZHH/Output/'+process+'/unitarityPlots/unitarityPlot_wpzh_'+i_name+'.png', dpi=300) #save plot, resolution
                 #        plt.show() #mi mostra la finestra del plot, da togliere se usi nelle code
                 plt.close(fig_all) #libera memoria da fig        
                 

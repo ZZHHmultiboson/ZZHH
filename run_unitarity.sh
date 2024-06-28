@@ -33,7 +33,7 @@ do
   for value in ${values[@]}
   do
     echo "Running operator $oppe, value $value ..."
-    python3 /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/plot_and_compute_fractions_checkCuts.py $proc $oppe $value
+    #python3 /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/plot_and_compute_fractions_checkCuts.py $proc $oppe $value
   done
 done
 deactivate
@@ -41,8 +41,8 @@ deactivate
 cd /afs/cern.ch/user/c/ccarriva/ZZHH/CMSSW_13_0_16/src
 cmsenv
 cd -
-python3 /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/my_analyzer_unitarity.py $proc m1100
-#python3 /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/unitarity_estimate.py $proc $cuts $ref_op
+#python3 /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/my_analyzer_unitarity.py $proc m1100
+# python3 /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/unitarity_estimate.py $proc $cuts $ref_op
 python3 /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/unitarity_estimate_fromSplusB.py $proc $cuts
 python3 /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/limits_compare.py $proc
 

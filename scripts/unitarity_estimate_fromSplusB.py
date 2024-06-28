@@ -27,6 +27,8 @@ def vertexy(a,b,c):
     return -(b**2-4.*a*c)/(4.*a)
 
 def inversefuncplus(y,a,b,c):
+    print ("############")
+    print ("CIAONE:      ", b**2 - 4.*a*(c-y))
     if (b**2 - 4.*a*(c-y)) > 0 : 
         return (-b + np.sqrt(b**2 - 4.*a*(c-y)))/(2.*a) 
     return 1000.

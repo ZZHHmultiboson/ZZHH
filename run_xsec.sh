@@ -56,12 +56,12 @@ if [ "$isSignal" == "true" ]; then
   for folder in /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/out_${proc}_*/Events; do
     cp -r $folder/* /afs/cern.ch/user/c/ccarriva/ZZHH/Output/$proc/xsec/Events
   done
-  rm -r /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/condor_out_${proc}
+  #rm -r /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/condor_out_${proc}
   rm -r /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/out_${proc}_*
 else
   rm /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/file_out_${proc}*
   rm /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/condor_out_${proc}*
-  rm /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/run_out_${proc}*
+  #rm /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/run_out_${proc}*
   cp -r /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/out_$proc/Events/ /afs/cern.ch/user/c/ccarriva/ZZHH/Output/$proc/xsec
   cp -r /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/data_$proc /afs/cern.ch/user/c/ccarriva/ZZHH/Output/$proc/xsec
 fi

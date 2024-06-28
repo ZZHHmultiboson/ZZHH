@@ -71,7 +71,8 @@ if [ "$isSignal" == "true" ]; then
     cp /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/condor_sign/dummy_fct_forWZ.f /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/out_${proc}_${oppe}/SubProcesses/dummy_fct.f
   done
 else
-  cp /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/condor_bkg/dummy_fct_ppTozbbbb.f /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/out_$proc/SubProcesses/dummy_fct.f
+  #cp /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/condor_bkg/dummy_fct_ppTozbbbb.f /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/out_$proc/SubProcesses/dummy_fct.f
+  cp /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/condor_bkg/dummy_fct_ppTozbb.f /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/out_$proc/SubProcesses/dummy_fct.f
 fi
 
 if [ "$isSignal" == "true" ]; then

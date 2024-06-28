@@ -82,7 +82,7 @@ def main():
         processes_data = json.load(file)
     with open(decay_file, 'r') as file:
         decay_data = json.load(file)
-    br_expression = processes_data.get(process, {}).get('BR')
+    br_expression = processes_data.get(processo, {}).get('BR')
     for key, value in decay_data.items():
         br_expression = br_expression.replace(key, str(value))
     br = eval(br_expression)
