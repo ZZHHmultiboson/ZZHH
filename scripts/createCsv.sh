@@ -9,19 +9,24 @@ proc=$1
 isSignal=$(jq -r ".${proc}.isSignal" $file)
 
 operators=()
-
-for key in $(jq -r 'keys[]' /afs/cern.ch/user/c/ccarriva/ZZHH/operators.json); do
-  value=$(jq -r ".${key}" /afs/cern.ch/user/c/ccarriva/ZZHH/operators.json)
+operators_json="/afs/cern.ch/user/c/ccarriva/ZZHH/operators.json"
+for key in $(jq -r 'keys[]' "$operators_json"); do
+  value=$(jq -r ".${key}.turn" "$operators_json")
+  echo "Operator: $key, Turn: $value" # Debugging line
   if [ "$value" == "on" ]; then
     operators+=("$key")
   fi
 done
+echo "Operators: ${operators[@]}"
+
+touch "/afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/${2}/model_all.csv"
 
 if [ "$isSignal" == "false" ]; then
   more /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/run_out_${1}_cuts.out | grep "Cross-sect" | head -1 | sed "s#     Cross-section :   #0.,#g" | sed "s# +- #,#g" | sed "s#pb##g" > /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/${2}/model_Eboli_${1}.csv
 else
   for oppe in ${operators[@]} 
     do
+    cp /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/${2}/model_all.csv /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/${2}/model_Eboli_${1}_${oppe}.csv
     more /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/condor_out_${1}/run_out_${1}_${oppe}_cuts.out | grep "Cross-sect" | head -1 | sed "s#     Cross-section :   #0.,#g" | sed "s# +- #,#g" | sed "s#pb##g" > /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/${2}/model_Eboli_${1}_${oppe}.csv
     more /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/condor_out_${1}/run_out_${1}_${oppe}_cuts.out | grep "Cross-sect" | head -2 | tail -1 | sed "s#     Cross-section :   #-20.,#g" | sed "s# +- #,#g" | sed "s#pb##g" >> /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/${2}/model_Eboli_${1}_${oppe}.csv
     more /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/condor_out_${1}/run_out_${1}_${oppe}_cuts.out | grep "Cross-sect" | head -3 | tail -1 | sed "s#     Cross-section :   #-10.,#g" | sed "s# +- #,#g" | sed "s#pb##g" >> /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/${2}/model_Eboli_${1}_${oppe}.csv
