@@ -38,7 +38,7 @@ voms-proxy-init -voms cms -rfc --valid 168:0
 ```
 Cross section results, as well as plots of cross section as a function of WCs, are stored in Output/$PROC_NAME directory.
 
-> Note: Background processes require only these two steps.
+> Note: Background processes require only these two steps. Be sure to run backgrund's steps before moving to run_unitarity for signal.
 
 
 ## EFT limits w/ unitarity bounds
