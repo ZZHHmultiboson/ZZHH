@@ -19,11 +19,13 @@ Define your process in processes.json using the following syntax:
     "isSignal": true,
     "mg5_syntax": "generate p p > w+ z h QED=3",
     "BR": "br_H * br_Z * br_W * 4.",
+    "cuts": "forWZ",
     "bkg": "wpzbb"
 }
 
 ```
-where the key is the process name. Turn on operators of interest in operators.json. Values of branching ratios for leptonic decays are defined in decays.json.
+where the key is the process name. Turn on operators of interest in operators.json. Values of branching ratios for leptonic decays are defined in decays.json.  
+“cuts” refers to the basic cut that is applied in the generation of the events (i.e., “forWZ” applies a cut at 1.1 TeV on the invariant mass of the bosons in the final state). The cuts are implemented in Fortran codes called "dummy_fct_$CUTS.f" and stored in scripts/cuts folder.  
 
 > * br_H = 5.824e-01 [ h->bb (H125, YR4) ]  
 > * br_Z = 3.3658e-02 [ z->ll (e, mu, pdg) ]  

@@ -10,6 +10,7 @@ proc=$1
 isSignal=$(jq -r ".${proc}.isSignal" $file)
 mg5_string=$(jq -r ".${proc}.mg5_syntax" $file)
 BR=$(jq -r ".${proc}.BR" $file)
+cuts=$(jq -r ".${proc}.cuts" $file)
 
 if [ "$isSignal" == "null" ] || [ "$mg5_syntax" == "null" ] || [ "$BR" == "null" ]; then
     echo "No matching process found for $1"
@@ -19,12 +20,13 @@ fi
 echo "isSignal: $isSignal"
 echo "mg5_syntax: $mg5_string"
 echo "BR: $BR"
+echo "cuts: $cuts"
 
 # Launching MadGraph
 
 if [ "$isSignal" == "true" ]; then
-  rm -r out_${proc}_*
-  rm -r condor_${proc}
+  rm -r /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/out_${proc}*
+  rm -r /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/condor_out_${proc}*
   mkdir /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/condor_out_$proc
   mkdir /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/condor_out_$proc/exe
 else
@@ -45,12 +47,10 @@ cmd_file="/afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/mg5_cmd.txt"
   echo "output /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/out_$proc" >> $cmd_file
   echo "quit" >> $cmd_file
 
-python3 /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/bin/mg5_aMC $cmd_file > /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/mg5_$proc.log
+python3 /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/bin/mg5_aMC $cmd_file > /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/mg5_${proc}.log
 
 cat $cmd_file
 rm $cmd_file
-
-echo "all ok now"
 
 operators_json="/afs/cern.ch/user/c/ccarriva/ZZHH/operators.json"
 operators=()
@@ -68,19 +68,11 @@ if [ "$isSignal" == "true" ]; then
   for oppe in ${operators[@]}
   do
     cp -r /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/out_$proc /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/out_${proc}_${oppe}
-    cp /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/condor_sign/dummy_fct_forWZ.f /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/out_${proc}_${oppe}/SubProcesses/dummy_fct.f
-  done
-else
-  #cp /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/condor_bkg/dummy_fct_ppTozbbbb.f /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/out_$proc/SubProcesses/dummy_fct.f
-  cp /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/condor_bkg/dummy_fct_ppTozbb.f /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/out_$proc/SubProcesses/dummy_fct.f
-fi
-
-if [ "$isSignal" == "true" ]; then
-  for oppe in ${operators[@]}
-  do
+    cp /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/cuts/dummy_fct_${cuts}.f /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/out_${proc}_${oppe}/SubProcesses/dummy_fct.f
     source /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/condor_sign/sendOne_cuts.sh out_${proc} $oppe
   done
 else
+  cp /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/cuts/dummy_fct_${cuts}.f /afs/cern.ch/user/c/ccarriva/ZZHH/MG5_aMC_v2_9_18/out_$proc/SubProcesses/dummy_fct.f
   source /afs/cern.ch/user/c/ccarriva/ZZHH/scripts/condor_bkg/sendOne_cuts_bkg.sh out_$proc
 fi
 

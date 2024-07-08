@@ -3,72 +3,84 @@
         "isSignal": true,
         "mg5_syntax": "generate p p > w+ z h QED=3",
         "BR": "br_H * br_Z * br_W * 4.",
+        "cuts": "forWZ",
         "bkg": "wpzbb"
     },
     "wmzh": {
         "isSignal": true,
         "mg5_syntax": "generate p p > w- z h QED=3",
         "BR": "br_H * br_Z * br_W * 4.",
+        "cuts": "forWZ",
         "bkg": "wmzbb"
     },
     "zhjj": {
         "isSignal": true,
         "mg5_syntax": "generate p p > z h j j QCD=0",
         "BR": "br_H * br_Z * 2.",
+        "cuts": "forWZ",
         "bkg": "zbbjj"
     },
     "wphjj": {
         "isSignal": true,
         "mg5_syntax": "generate p p > w+ h j j QCD=0",
         "BR": "br_H * br_W * 2.",
+        "cuts": "forWZ",
         "bkg": "wpbbjj"
     },
     "wmhjj": {
         "isSignal": true,
         "mg5_syntax": "generate p p > w- h j j QCD=0",
         "BR": "br_H * br_W * 2.",
+        "cuts": "forWZ",
         "bkg": "wmbbjj"
     },
     "zhh": {
         "isSignal": true,
         "mg5_syntax": "generate p p > z h h QED=3",
         "BR": "br_H * br_H * br_Z * 2.",
+        "cuts": "forWZ",
         "bkg": "zbbbb"
     },
     "wpzbb": {
         "isSignal": false,
         "mg5_syntax": "generate p p > w+ z b b~ QED=3",
         "BR": "br_W * br_Z * 4.",
+        "cuts": "ppTozbb",
         "bkg": "none"
     },
     "wmzbb": {
         "isSignal": false,
         "mg5_syntax": "generate p p > w- z b b~ QED=3",
         "BR": "br_W * br_Z * 4.",
+        "cuts": "ppTozbb",
         "bkg": "none"
     },
     "zbbjj": {
         "isSignal": false,
         "mg5_syntax": "generate p p > z b b~ j j",
         "BR": "br_Z * 2.",
+        "cuts": "ppTozbb",
         "bkg": "none"
     },
     "wpbbjj": {
         "isSignal": false,
         "mg5_syntax": "generate p p > w+ b b~ j j",
         "BR": "br_W * 2.",
+        "cuts": "ppTozbb",
         "bkg": "none"
     },
     "wmbbjj": {
         "isSignal": false,
         "mg5_syntax": "generate p p > w- b b~ j j",
         "BR": "br_W * 2.",
+        "cuts": "ppTozbb",
         "bkg": "none"
     },
     "zbbbb": {
         "isSignal": false,
         "mg5_syntax": "generate p p > z b b~ b b~ QED=3",
         "BR": "br_H * br_H * br_Z * 2.",
+        "cuts": "ppTozbbbb",
         "bkg": "none"
     }
 }

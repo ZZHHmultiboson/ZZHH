@@ -47,7 +47,7 @@ def plot_intervals(user_intervals):
     table_intervals = [parse_interval(coefficients[key]) for key in labels]
     user_parsed_intervals = [parse_interval(user_intervals.get(key, "-")) for key in labels]
     x = range(len(labels))  
-    width = 0.35  # Bar width
+    width = 0.25  # Bar width
     process = sys.argv[1]
     
     fig, ax = plt.subplots()
@@ -62,7 +62,7 @@ def plot_intervals(user_intervals):
     ax.set_yticklabels(labels)
     ax.legend(loc='upper right')
     
-    ax.set_xlim(-8, 8)
+    ax.set_xlim(-25, 25)
 
     fig.tight_layout()
     plt.savefig(f'/afs/cern.ch/user/c/ccarriva/ZZHH/Output/{process}/limits_compare_{process}.png') 
