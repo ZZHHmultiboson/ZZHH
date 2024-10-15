@@ -50,9 +50,9 @@ Limits on EFT parameters are derived at the mass point given by the intersection
 To derive CMS acceptance for a given final state (signal or background), run:
 
 ```bash                                                                                                                                                                                                    
-./run_unitarity.sh $PROC_NAME $NUM_BJETS $NUM_LEPTONS                                                                                                                                                                        
+./run_acceptance.sh $PROC_NAME $NUM_BJETS $NUM_LEPTONS                                                                                                                                                                        
 ```
-where you specify the number of charged leptons and b-jets in the final state, which need to be detected by the experiment. 
+where you specify the number of charged leptons and b-jets in the final state, which need to be detected by the experiment. Look at the output .txt file and copy the acceptance values inside scripts/analyze_unitarity_fromSplusB.py.
 
 To plot xsec as a function of Fi at each mass point, compare the two curves and derive the final limit, run:
 
