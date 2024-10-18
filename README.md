@@ -45,7 +45,15 @@ Cross section results, as well as plots of cross section as a function of WCs, a
 
 ## EFT limits w/ unitarity bounds
 
-Limits on EFT parameters are derived at the mass point given by the intersection of theoretical curve and the one obtained varying the mass interval for xsec extraction.  
+Limits on EFT parameters are derived at the mass point given by the intersection of theoretical curve and the one obtained varying the mass interval for xsec extraction.
+
+To derive CMS acceptance for a given final state (signal or background), run:
+
+```bash                                                                                                                                                                                                    
+./run_acceptance.sh $PROC_NAME $NUM_BJETS $NUM_LEPTONS                                                                                                                                                                        
+```
+where you specify the number of charged leptons and b-jets in the final state, which need to be detected by the experiment. Look at the output .txt file and copy the acceptance values inside scripts/analyze_unitarity_fromSplusB.py.
+
 To plot xsec as a function of Fi at each mass point, compare the two curves and derive the final limit, run:
 
 ```bash
